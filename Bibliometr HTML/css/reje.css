@@ -1,0 +1,55 @@
+img{float:left;
+
+margin-top:4%;
+margin-left:8%}
+#form
+{
+	margin-right:20%;
+	margin-top:1%;
+float:right;
+height:60%;
+width:35%;
+
+}
+form > input{
+	width:400px;
+	height:35px;
+	margin:5px;
+}
+	form > input[id="imie"]{width:193px;}
+	form > input[id="nazwisko"]{width:193px;}
+	
+	input[type="checkbox"]{height:20px;width:20px;}
+	label {font-size:20px;
+	
+	color:white;
+	}
+	
+	.button {
+		width:300px;
+		height:55px;
+    background-color: white;
+    border: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Bebas;
+    color: black;
+    border-radius: 12px;
+	font-size: 30px;
+  }
+ 
+h1{font-family:"Bebas";
+text-align:center;
+color:white;
+font-size:50px;
+}
+
+hr{height:2px;
+background-color:white;}
