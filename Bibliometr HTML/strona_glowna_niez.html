@@ -18,45 +18,51 @@
             <div id="divider"></div>
 
             <div id="content">
-              <div id="prawa">
-                <a class="button">Logowanie</a>
-                <a class="button" href="reje.html">Rejestracja</a>
-             </div>	
+                <div id="prawa">
+                    <a class="button" href ="#">Logowanie</a>
+                    <a class="button" href="reje.html">Rejestracja</a>
+                </div>	
               
               
             <img src="IMG/logoskpn.png">
 
-             <div id="wyszukiwarka">
-                 <div class="wysz-part">
-                    <input type="text" placeholder="Wyszukaj" id="wyszukaj_niez" id="wyszukaj">
-                    <input type="submit" value="Szukaj" id="szukaj">
+                <div id="wyszukiwarka">
+                    <div class="wysz-part">
+                        <input type="text" id = "wyszukaj">
+                        <input type="button" value = "Szukaj" id = "szukaj"></input>
             
-                    <form action="">
-                        <select name="wybor">
-                            <option>Autor</option>
-                            <option>Nazwa pbulikacji</option>
-                        </select>
-                    </form>
-                </div> 
-                <div class="wysz-part">
-                    <a class="button1" onclick="panelToggle()">eksportuj</a>
-                    <a class="button1" onclick="panelToggle()">filtrowanie</a>
-                </div>
-                <div id="panel">
+                        <form action="">
+                            <select name="wybor">
+                                <option>Autor</option>
+                                <option>Nazwa publikacji</option>
+                                <option>Data</option>
+                                <option>DOI</option>
+                                <option>Tytuł</option>
+                                <option>Punkty</option>
+                            </select>
+                        </form>
+                    </div> 
+
+                    <div class="wysz-part">
+                        <a class="button1">eksportuj</a>
+                        <a class="button1" onclick="panelToggle()">filtrowanie</a>
+                    </div>
+
+                    <div id="panel">
                         <p onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
                             <span><input type="checkbox">Autor</span>
-                            <span><input type="checkbox">Nazwa pulikacji</span>
+                            <span><input type="checkbox">Nazwa publikacji</span>
                             <span><input type="checkbox">Data</span>
                             <span><input type="checkbox">DOI</span>
                             <span><input type="checkbox">Tytuł</span>
-                            <span><input type="checkbox">Pkt</span>
+                            <span><input type="checkbox">Punkty</span>
                     </div>
-            </div>
+                </div>
 
                 
             
                 
-			  <table id = "tabela" cellspacing ="0">
+			<table id = "tabela">
                 <tr>
                     <td class ="hidden-in-table"></td>
                     <td><input type="checkbox" checked></td>
@@ -73,7 +79,7 @@
                     <td>Data</td>
                     <td>DOI</td>
                     <td>Tytuł</td>
-                    <td>Pkt</td>
+                    <td>Punkty</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" checked></td>
@@ -84,9 +90,9 @@
                     <td>Doktor rehabilitowany</td>
                     <td>100/100</td>
                 </tr>
-			  </div>
-            </div>
+			</table>
+        </div>
 
-            <script src="js/scripts.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
