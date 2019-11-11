@@ -25,8 +25,7 @@ margin-right:10px;}
     border-color: black;
     padding: 5px 15px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    display: block;
     margin-top: 10px;
 	  margin-left:15px;
     cursor: pointer;
@@ -47,8 +46,7 @@ margin-right:10px;}
     border-color: black;
     padding: 5px 15px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    display: block;
     margin: 4px 2px;
     cursor: pointer;
     font-family: Bebas;
@@ -72,7 +70,7 @@ width:90%;
 height:65%;
 background-color:red;
 margin:auto;
-font-size: 100px;
+font-size: 20px;
 overflow: hidden;
 }
 

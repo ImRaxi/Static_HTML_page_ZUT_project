@@ -1,8 +1,11 @@
+<!doctype html>
+
 <html>
     <head>
         <title>SKPN</title>
         <link rel="stylesheet" href="./css/template.css">
-		<link rel="stylesheet" href="./css/panel_uz.css">
+    <link rel="stylesheet" href="./css/panel_uz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div id="box">
@@ -18,9 +21,9 @@
 
               <div id="prawa"><a class="button1">Wyloguj</a>
                 
-              <a class="button1" onclick="panelON()">Edytuj Profil</a>
+              <a class="button1" onclick="panelToggle()">Edytuj Profil</a>
               <div id="panel">
-                    <p style="float:right" onclick="panelOFF()">&#9773;</p><br>
+                    <p style="float:right" onclick="panelToggle()">&#9773;</p><br>
        
                    
                        <form>
@@ -43,17 +46,12 @@
             
                 
 			  <div id="tabela">
-              TU BĘDZIE TABELA XD<br>sdasdasdasdasdas<br>dfsdsfcvsdfdsfdsf<br>sdfasfasfadsfasdfads<br>dfdasfdasfdsfdsf
+              TWOJE PUBLIKACJE
+              <input type="text" placeholder="Wyszukaj" id="wyszukaj-swoje">
+              <input type="submit" value="Szukaj" >
 			  </div>
             </div>
 
-            <script>
-                function panelON() {
-                  document.getElementById("panel").style.display = "block";
-                }
-                function panelOFF() {
-                  document.getElementById("panel").style.display = "none";
-                }
-            </script>
+            <script src="js/scripts.js"></script>
     </body>
 </html>
