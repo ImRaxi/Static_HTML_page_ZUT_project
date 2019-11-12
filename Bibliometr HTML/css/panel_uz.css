@@ -112,3 +112,52 @@ overflow: hidden;
   height: 50px;
   font-size: 24px;
 }
+#tabela {
+  position: relative;
+  width:90%;
+  font-size: 20px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+#tabela > span{
+  margin-left:60px;
+  font-family: Bebas;
+  font-size: 30px;
+  padding-top:15px;
+}
+
+#wyszukaj-swoje{
+  height:30px;
+  width: 370px;;
+}
+#tabela td {
+  font-size: 20px;
+  text-align: center;
+  background-color: white;
+  border: 2px solid black;
+  width: 1%;
+}
+
+#tabela tr:first-child td{
+  height:60px;
+}
+
+#panel p {
+  margin: 0px;
+  margin-left: 10px;
+  text-align: right;
+  cursor: pointer;
+}
+
+
+.dodaj{
+  font-family: Bebas;
+  font-size: 30px;
+  background-color: floralwhite;
+  padding: 7px 10px;
+  border: solid 2px green;
+}
+.editTable{
+  background: transparent !important;
+  border:none !important;
+  }
