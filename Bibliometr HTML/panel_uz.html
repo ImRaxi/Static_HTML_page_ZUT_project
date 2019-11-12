@@ -17,13 +17,13 @@
 
             <div id="content">
 
-              <a class="button">Strona Główna</a>
+              <a class="button" href="Strona_glowna_z.html">Strona Główna</a>
 
-              <div id="prawa"><a class="button1">Wyloguj</a>
+              <div id="prawa"><a class="button1" href="strona_glowna_niez.html">Wyloguj</a>
                 
-              <a class="button1" onclick="panelToggle()">Edytuj Profil</a>
-              <div id="panel">
-                    <p style="float:right" onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
+              <a class="button1" onclick="panelToggleE()">Edytuj Profil</a>
+              <div id="panel_edycja">
+                    <p style="float:right" onclick="panelToggleE()"><i class="fa fa-times" aria-hidden="true"></i></p>
        
                    
                        <form>
@@ -44,12 +44,12 @@
               <h1>PANEL UŻYTKOWNIKA</h1>
                 
             
-                
+
 			  <div id="tabela">
               <span><b>TWOJE PUBLIKACJE</b></span>
               
               <input type="text" placeholder="Wyszukaj" id="wyszukaj-swoje">
-              <input type="submit" value="Szukaj" ><br>
+              <button class="szukaj"><i class="fa fa-search" aria-hidden="true"></i></button><br>
               
               <table id = "tabela" cellspacing ="0">
                 <tr>
@@ -59,7 +59,7 @@
                     <td>DOI</td>
                     <td>Tytuł</td>
                     <td>Pkt</td>
-                    <td class="editTable"><a class="dodaj">DODAJ <b>+</b></a></td>
+                    <td class="editTable"><a class="dodaj" onclick="panelToggle()">DODAJ <b>+</b></a></td>
                 </tr>
                 <tr>
                     <td>Paweł Krawczak</td>
@@ -74,7 +74,21 @@
                 </tr>
                 </table>
                 
-			  </div>
+              </div>
+              <div id="panel">
+                <p style="float:right" onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
+                <form>
+                    <input required type="text" placeholder="Autor" id="Autor"><br>
+                    <input required type="text" placeholder="Nazwa" id="Nazwa"></br>
+                    <input required type="text" placeholder="Data" id="Data"></br>
+                    <input required type="text" placeholder="DOI" id="DOI"></br>
+                    <input required type="text" placeholder="Tytul" id="Tytul"></br>
+                    <input required type="text" placeholder="Punkty" id="Pkt">
+                    <input type="submit" value="ZAPISZ">
+                </form>
+              </div>
+              
+            </div>
             </div>
 
             <script src="js/scripts.js"></script>
