@@ -1,55 +1,74 @@
-img{float:left;
-
-margin-top:4%;
-margin-left:8%}
-#form
-{
-	margin-right:20%;
-	margin-top:1%;
-float:right;
-height:60%;
-width:35%;
-
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
 }
-form > input{
-	width:400px;
-	height:35px;
-	margin:5px;
+
+img {
+  float:left;
+  margin-top:40px;
+  margin-left:80px;
 }
-	form > input[id="imie"]{width:193px;}
-	form > input[id="nazwisko"]{width:193px;}
-	
-	input[type="checkbox"]{height:20px;width:20px;}
-	label {font-size:20px;
-	
-	color:white;
+
+#form {
+  margin-right:20%;
+  margin-top:40px;
+  float:right;
+  width:410px;
+}
+
+form input[type="text"] {
+  width:400px;
+  padding: 11px 7px;
+  margin:7px 5px;
+  border: none;
+}
+  form input[id="imie"], form input[id="nazwisko"] {
+    width:192px;
+  }
+
+  input[type="checkbox"] {
+    margin:7px 5px;
+  }
+  
+  span {
+    font-size:18px;
+    text-transform: uppercase;
+    color:white;
+    font-family: Bebas;
 	}
 	
 	.button {
 		width:300px;
 		height:55px;
     background-color: white;
-    border: solid;
-    border-width: 2px;
-    border-color: black;
+    border: 2px solid black;
     padding: 5px 15px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
     font-family: Bebas;
     color: black;
     border-radius: 12px;
-	font-size: 30px;
+    font-size: 30px;
+    margin: 10px 0px 0px 55px;
+    transition: 0.3s;
+  }
+
+  .button:hover {
+    background-color: #030303;
+    color: white;
   }
  
-h1{font-family:"Bebas";
-text-align:center;
-color:white;
-font-size:50px;
+h1 {
+  font-family: Bebas;
+  text-align:center;
+  color:white;
+  font-size:50px;
 }
 
-hr{height:2px;
-background-color:white;}
+hr {
+  height:5px;
+  background-color:white;
+}
