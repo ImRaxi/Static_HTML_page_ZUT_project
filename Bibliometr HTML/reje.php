@@ -25,7 +25,7 @@
 						<input required type="text" placeholder="Nazwisko" id="nazwisko"></br>
 						<input required type="text" placeholder="E-mail" id="email"></br>
 						<input required type="text" placeholder="Hasło" id="haslo"></br>
-						<input required type="text" placeholder="Potwierdzneie hasła"id="potwierdzenie_hasla"></br>
+						<input required type="text" placeholder="Potwierdzenie hasła"id="potwierdzenie_hasla"></br>
 						<input required type="text" placeholder="Uczelnia" id="uczelnia"></br>
 						<input type="checkbox"><span>Akceptuję regulamin</span>
 					<hr>
