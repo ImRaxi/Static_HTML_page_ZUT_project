@@ -1,6 +1,6 @@
 <?php 
-    session_start();
+    @session_start();
 
     session_unset();
-    header('Location: Strona_glowna_niez.php');
+    header('Location: strona_glowna_niez.php');
 ?>

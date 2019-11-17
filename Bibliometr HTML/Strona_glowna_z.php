@@ -1,6 +1,6 @@
 
 <?php 
-  session_start();
+  @session_start();
 
   if(!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
     header('Location:  login.php');
@@ -50,7 +50,7 @@
                 </div>	
               
               
-            <a href="strona_glowna_z.php"><img src="IMG/logoskpn.png"></a>
+            <a href="Strona_glowna_z.php"><img src="IMG/logoskpn.png"></a>
 
                 <div id="wyszukiwarka">
                     <div class="wysz-part">
