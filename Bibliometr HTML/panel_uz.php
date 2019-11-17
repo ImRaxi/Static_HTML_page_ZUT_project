@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location:  Strona_glowna_z.php');
+        exit();
+      }
+
+    ?>
+
 <!doctype html>
 
 <html>
@@ -17,9 +27,9 @@
 
             <div id="content">
 
-              <a class="button" href="Strona_glowna_z.html">Strona Główna</a>
+              <a class="button" href="Strona_glowna_z.php">Strona Główna</a>
 
-              <div id="prawa"><a class="button1" href="strona_glowna_niez.html">Wyloguj</a>
+              <div id="prawa"><a class="button1" href="logout.php">Wyloguj</a>
                 
               <a class="button1" onclick="panelToggleE()">Edytuj Profil</a>
               <div id="panel_edycja">

@@ -1,8 +1,18 @@
+
+<?php 
+  session_start();
+
+  if(!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
+    header('Location:  login.php');
+    exit();
+  }
+?>
+
 <!doctype html>
 
 <html>
     <head>
-        <title>SKPN</title>
+        <title>SKPN - System katalogowania publikacji naukowych</title>
         <link rel="stylesheet" href="./css/template.css">
         <link rel="stylesheet" href="./css/strona_glowna_z.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,28 +23,34 @@
 
             <header>
                 <h3>SYSTEM BIBLIOMETRYCZNY</h3>
+                <?php
+                    if($_SESSION['imie'] !== null && $_SESSION['nazwisko'] !== null) {
+                        echo '<div class = "logged-in-as"><p>Jesteś zalogowany jako: '.$_SESSION['imie'] . ' ' . $_SESSION['nazwisko'] . '</p></div>'; 
+                    }
+                ?>
             </header>
 
             <div id="divider"></div>
 
             <div id="content">
                 <div id="prawa">
-                    <a class="button" href ="panel_uz.html">PANEL UŻYTKOWNIKA</a>
+                    <a class="button" href ="panel_uz.php">PANEL UŻYTKOWNIKA</a>
                     <a class="button" onclick="panelToggleE()">EDYTUJ PROFIL</a>
-                    <a class="button">WYLOGUJ SIĘ</a>
+                    <a class="button" href="logout.php">WYLOGUJ SIĘ</a>
+                    
                     <div id="panel_edycja">
                         <p onclick="panelToggleE()"><i class="fa fa-times" aria-hidden="true"></i></p>
-                        <input required type="text" placeholder="imie" id="imie"><br>
-                        <input required type="text" placeholder="nazwisko" id="nazwisko"></br>
-                        <input required type="text" placeholder="email" id="email"></br>
-                        <input required type="text" placeholder="haslo" id="haslo"></br>
+                        <input required type="text" placeholder="Imię" id="imie"><br>
+                        <input required type="text" placeholder="Nazwisko" id="nazwisko"></br>
+                        <input required type="text" placeholder="E-mail" id="email"></br>
+                        <input required type="text" placeholder="Hasło" id="haslo"></br>
                         <input required type="text" placeholder="Uczelnia" id="uczelnia"></br>
                         <input type="submit" value="ZAPISZ">
                     </div>
                 </div>	
               
               
-            <img src="IMG/logoskpn.png">
+            <a href="strona_glowna_z.php"><img src="IMG/logoskpn.png"></a>
 
                 <div id="wyszukiwarka">
                     <div class="wysz-part">
@@ -43,7 +59,7 @@
             
                         <form action="">
                             <select name="wybor">
-                                <option>Autor</option>
+                                <option>Autor </option>
                                 <option>Nazwa publikacji</option>
                                 <option>Data</option>
                                 <option>DOI</option>
@@ -60,12 +76,12 @@
 
                     <div id="panel">
                         <p onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
-                            <span><input type="checkbox">Autor</span>
-                            <span><input type="checkbox">Nazwa publikacji</span>
-                            <span><input type="checkbox">Data</span>
-                            <span><input type="checkbox">DOI</span>
-                            <span><input type="checkbox">Tytuł</span>
-                            <span><input type="checkbox">Punkty</span>
+                            <span><input type="checkbox"/>Autor</span>
+                            <span><input type="checkbox"/>Nazwa publikacji</span>
+                            <span><input type="checkbox"/>Data</span>
+                            <span><input type="checkbox"/>DOI</span>
+                            <span><input type="checkbox"/>Tytuł</span>
+                            <span><input type="checkbox"/>Punkty</span>
                     </div>
                 </div>
 

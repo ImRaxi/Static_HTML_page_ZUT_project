@@ -14,7 +14,7 @@
             <div id="divider"></div>
 
             <div id="content">
-				<a href="strona_glowna_niez.html"><img src="IMG/logoskpn.png"></a>
+				<a href="strona_glowna_niez.php"><img src="IMG/logoskpn.png"></a>
 				
 				<div id="form">
 				<h1> REJESTRACJA </h1>

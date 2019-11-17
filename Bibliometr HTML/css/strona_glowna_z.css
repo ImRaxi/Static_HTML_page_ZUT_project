@@ -32,6 +32,7 @@ a {
     color: black;
     border-radius: 12px;
     font-size: 15px;
+    transition: 0.3s;
   }
 
 #wyszukiwarka{
@@ -58,15 +59,21 @@ a {
     color: black;
     border-radius: 12px;
     font-size: 15px;
-    margin: 0px 1px;
+    margin: 0px 2px;
+    transition: 0.3s;
   }
+
+  .button:hover, .button1:hover {
+    background-color: #262827;
+    color: white;
+}
 
 #panel{
     position: absolute;
     top: 72px;
     right: 0;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgb(20, 19, 19);
     color: white;
     z-index: 10;
     display: none;
@@ -75,6 +82,14 @@ a {
     flex-direction: column;
     display: none;
   }
+
+  #panel span {
+      padding: 5px;
+  }
+
+  #panel span input {
+    margin-right: 3px;
+}
 
 #wyszukiwarka form {
       margin-left: 10px;
@@ -112,7 +127,7 @@ a {
     padding: 0px 10px;
 }
 
-#panel p {
+#panel p, #panel_edycja p {
     margin: 0px;
     margin-left: 10px;
     text-align: right;
@@ -143,7 +158,7 @@ a {
     top: 110px;
     right: 10px;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #151616;
     color: white;
     z-index: 10;
     padding: 20px;
@@ -159,18 +174,36 @@ a {
   }
   
   #panel_edycja input[type="submit"]{
-    background-color: rgb(0,0,0,0);
+    background-color: #262827;
     border-style: solid;
     border-width: 1px;
-    border-color: green;
+    border-color: white;
     color: white;
     font-family: Bebas;
-    width: 100px;
+    width: 100%;
     height: 50px;
     font-size: 24px;
     margin: auto;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #panel_edycja input[type="submit"]:hover {
+    background-color: white;
+    color: #262827;
   }
   
   #panel_edycja input{
       padding: 5px;
+  }
+
+  .logged-in-as {
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      color: white;
+  }
+
+  input[type="checkbox"] {
+      cursor: pointer;
   }
