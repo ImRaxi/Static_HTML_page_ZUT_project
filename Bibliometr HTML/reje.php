@@ -11,21 +11,11 @@
 			$_SESSION['e_imie'] = "Imię nie może być dłuższe niż 30 znaków.";
 		}
 
-		if(ctype_alnum($regName) == false) {
-			$validatedRight = false;
-			$_SESSION['e_imie'] = "Imię nie może zawierać cyfr oraz znaków specjalnych.";
-		}
-
 		$regNazwisko = $_POST['reg-nazwisko'];
 
 		if(strlen($regNazwisko) > 30) {
 			$validatedRight = false;
 			$_SESSION['e_nazwisko'] = "Nazwisko nie może być dłuższe niż 40 znaków.";
-		}
-
-		if(ctype_alnum($regNazwisko) == false) {
-			$validatedRight = false;
-			$_SESSION['e_nazwisko'] = "Nazwisko nie może zawierać cyfr oraz znaków specjalnych.";
 		}
 
 		$regHaslo = $_POST['reg-haslo'];
