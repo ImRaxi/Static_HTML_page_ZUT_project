@@ -1,4 +1,3 @@
-
 <?php 
   @session_start();
 
@@ -16,7 +15,14 @@
         <link rel="stylesheet" href="./css/template.css">
         <link rel="stylesheet" href="./css/strona_glowna_z.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta charset ="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script> 
+        $(document).ready(function(){
+            $("#szukaj").click(function(){
+                $("#searchbars").slideToggle("fast");
+            });
+        });
+        </script>
     </head>
 
     <body>
@@ -53,21 +59,9 @@
               
             <a href="Strona_glowna_z.php"><img src="IMG/logoskpn.png"></a>
 
-                <div id="wyszukiwarka">
+            <div id="wyszukiwarka">
                     <div class="wysz-part">
-                        <input type="text" id = "wyszukaj">
-                        <input type="button" value = "Szukaj" id = "szukaj"></input>
-            
-                        <form action="">
-                            <select name="wybor">
-                                <option>Autor </option>
-                                <option>Nazwa publikacji</option>
-                                <option>Data</option>
-                                <option>DOI</option>
-                                <option>Tytuł</option>
-                                <option>Punkty</option>
-                            </select>
-                        </form>
+                        <input type="button" value = "Szukaj" class="button1" id="szukaj">
                     </div> 
 
                     <div class="wysz-part">
@@ -77,13 +71,25 @@
 
                     <div id="panel">
                         <p onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
-                            <span><input type="checkbox"/>Autor</span>
-                            <span><input type="checkbox"/>Nazwa publikacji</span>
-                            <span><input type="checkbox"/>Data</span>
-                            <span><input type="checkbox"/>DOI</span>
-                            <span><input type="checkbox"/>Tytuł</span>
-                            <span><input type="checkbox"/>Punkty</span>
+                            <span><input type="checkbox">Autor</span>
+                            <span><input type="checkbox">Nazwa publikacji</span>
+                            <span><input type="checkbox">Data</span>
+                            <span><input type="checkbox">DOI</span>
+                            <span><input type="checkbox">Tytuł</span>
+                            <span><input type="checkbox">Punkty</span>
                     </div>
+                </div>
+                <div id="searchbars">
+                    <form>
+                        Autor:<br><input type="text" id = "autor"><br>
+                        Nazwa publikacji:<br><input type="text" id = "nazwa"><br>
+                        Data:<br>
+                        od:<input type="date" id="data">
+                        do:<input type="date" id="data"><br>
+                        DOI:<br><input type="text" id="DOI"><br>
+                        Tytuł:<br><input type="text" id="tytul"><br>
+                        <input type="submit" value="Szukaj" class="button1">
+                    </form>
                 </div>
 
                 

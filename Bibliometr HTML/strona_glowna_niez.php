@@ -17,7 +17,14 @@
         <link rel="stylesheet" href="./css/strona_glowna_niez.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-        <meta charset ="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script> 
+        $(document).ready(function(){
+            $("#szukaj").click(function(){
+                $("#searchbars").slideToggle("fast");
+            });
+        });
+        </script>
     </head>
 
     <body>
@@ -40,19 +47,7 @@
 
                 <div id="wyszukiwarka">
                     <div class="wysz-part">
-                        <input type="text" id = "wyszukaj">
-                        <input type="button" value = "Szukaj" id = "szukaj">
-            
-                        <form action="">
-                            <select name="wybor">
-                                <option>Autor</option>
-                                <option>Nazwa publikacji</option>
-                                <option>Data</option>
-                                <option>DOI</option>
-                                <option>Tytuł</option>
-                                <option>Punkty</option>
-                            </select>
-                        </form>
+                        <input type="button" value = "Szukaj" class="button1" id="szukaj">
                     </div> 
 
                     <div class="wysz-part">
@@ -69,6 +64,18 @@
                             <span><input type="checkbox">Tytuł</span>
                             <span><input type="checkbox">Punkty</span>
                     </div>
+                </div>
+                <div id="searchbars">
+                    <form>
+                        Autor:<br><input type="text" id = "autor"><br>
+                        Nazwa publikacji:<br><input type="text" id = "nazwa"><br>
+                        Data:<br>
+                        od:<input type="date" id="data">
+                        do:<input type="date" id="data"><br>
+                        DOI:<br><input type="text" id="DOI"><br>
+                        Tytuł:<br><input type="text" id="tytul"><br>
+                        <input type="submit" value="Szukaj" class="button1">
+                    </form>
                 </div>
 
                 
@@ -102,7 +109,7 @@
                     <td>Doktor rehabilitowany</td>
                     <td>100/100</td>
                 </tr>
-			</table>
+            </table>
         </div>
         <footer>
             <p>Pingwiny&copy; 2019 ZUT PSIAI</p>

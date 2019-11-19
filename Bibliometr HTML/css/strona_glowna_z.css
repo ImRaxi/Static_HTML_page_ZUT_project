@@ -35,7 +35,7 @@ a {
     transition: 0.3s;
   }
 
-#wyszukiwarka{
+#wyszukiwarka, #searchbars{
     padding: 20px;
     width: 90%;
     background-color: rgba(0,0,0, 0.4);
@@ -48,6 +48,22 @@ a {
     justify-content: space-between;
     position: relative;
 }
+
+#searchbars{
+    display:none;
+    color: white;
+}
+
+#searchbars input{
+    margin: 5px 0px;
+    height: 30px;
+    width: 250px;
+}
+
+input[type="date"]{
+    width:120px !important;
+}
+
 
 .button1{
     padding: 5px 20px;
@@ -63,8 +79,8 @@ a {
     transition: 0.3s;
   }
 
-  .button:hover, .button1:hover {
-    background-color: #262827;
+.button:hover, .button1:hover, #szukaj:hover {
+    background-color: #030303;
     color: white;
 }
 
