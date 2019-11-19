@@ -95,13 +95,13 @@
               <div id="panel">
                 <p style="float:right" onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
                 <form>
-                    <input required type="text" placeholder="Autor" id="Autor"><br>
+                    <input required type="text" placeholder="Autorzy" id="Autor"><br>
                     <input required type="text" placeholder="Nazwa" id="Nazwa"></br>
                     <input required type="text" placeholder="Data" id="Data"></br>
                     <input required type="text" placeholder="DOI" id="DOI"></br>
                     <input required type="text" placeholder="Tytul" id="Tytul"></br>
                     <input required type="text" placeholder="Punkty" id="Pkt">
-                    <input type="submit" value="ZAPISZ">
+                    <input type="submit" class="dodaj_w" value="DODAJ">
                 </form>
               </div>
               

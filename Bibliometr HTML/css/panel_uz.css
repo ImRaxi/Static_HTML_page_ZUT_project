@@ -36,27 +36,27 @@ margin-right:10px;}
   border-radius: 12px;
   font-size: 35px;
   text-decoration: none;
-  }
+}
 
 .button1{
-	  float:right;
-		width:125px;
-		height:30px;
-    background-color: white;
-    border: solid;
-    border-width: 2px;
-    border-color: black;
-    padding: 5px 15px;
-    text-align: center;
-    display: block;
-    margin: 4px 2px;
-    cursor: pointer;
-    font-family: Bebas;
-    color: black;
-    border-radius: 12px;
-    font-size: 25px;
-    text-decoration: none;
-  }
+  float:right;
+  width:125px;
+	height:30px;
+  background-color: white;
+  border: solid;
+  border-width: 2px;
+  border-color: black;
+  padding: 5px 15px;
+  text-align: center;
+  display: block;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: Bebas;
+  color: black;
+  border-radius: 12px;
+  font-size: 25px;
+  text-decoration: none;
+}
 
 h1
 {text-align:center;
@@ -122,6 +122,7 @@ overflow: hidden;
   background-color: rgb(122,122,120);
   border:none;
   font-size: 30px;
+  width: 50px;
 }
 #tabela {
   position: relative;
@@ -170,26 +171,19 @@ overflow: hidden;
 
   #panel {
     position: absolute;
-    top: 320px;
-    left:80px;
-    width:83%;
+    top: 353px;
+    left:127px;
+    width:74%;
     font-size: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    background-color: rgba(20, 30, 50, 0.9);
+    background-color: rgba(20, 30, 50, 1);
     display: none;
   }
-
-  #panel > form > input{
-    width:280px;
-    height: 30px;
-    margin: 5px 0;
-    margin-left:350px;
-  }
-  
-  #panel p {
+ #panel p {
+    
     padding: 5px;
     margin: 0px;
     margin-right: 10px;
@@ -197,6 +191,27 @@ overflow: hidden;
     cursor: pointer;
     color: red;
   }
+  
+#panel form input{
+    width:280px;
+    height: 30px;
+    margin: 5px 0;
+    margin-left:350px;
+  }
+ 
+ 
+
+  .dodaj_w{
+  width: 200px !important;
+  font-family: Bebas;
+  font-size: 25px;
+  background-color: floralwhite;
+  border: solid 2px green;
+  color:red;
+  cursor: pointer;
+  float: left;
+  margin-left: 390px !important;
+}
 
   #wyszukaj{
     width: 70%;
