@@ -52,16 +52,22 @@
               
               <img src="IMG/logoskpn.png">
 
+              
+
               <h1>PANEL UŻYTKOWNIKA</h1>
                 
             
 
 			  <div id="tabela">
+                  
+              <div id="wyszukaj">
               <span><b>TWOJE PUBLIKACJE</b></span>
               
               <input type="text" placeholder="Wyszukaj" id="wyszukaj-swoje">
               <button class="szukaj"><i class="fa fa-search" aria-hidden="true"></i></button><br>
               
+
+              </div>
               <table id = "tabela" cellspacing ="0">
                 <tr>
                     <td>Autor</td>
@@ -100,7 +106,10 @@
               </div>
               
             </div>
-            </div>
+            <footer>
+                    <p>Pingwiny&copy; 2019 ZUT PSIAI</p>
+            </footer>
+        </div>
 
             <script src="js/scripts.js"></script>
     </body>
