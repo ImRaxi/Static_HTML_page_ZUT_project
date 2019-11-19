@@ -2,6 +2,7 @@
     <head>
         <title>SKPN</title>
         <link rel="stylesheet" href="./css/template.css">
+        <meta charset ="UTF-8">
     </head>
     <body>
         <div id="box">

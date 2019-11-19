@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="./css/strona_glowna_niez.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <meta charset ="UTF-8">
     </head>
 
     <body>
