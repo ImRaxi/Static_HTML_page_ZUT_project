@@ -2,46 +2,48 @@
 	@session_start();
 
 	if(isset($_POST['reg-email'])) {
+		
 		$validatedRight = true;
 
 		$regName = $_POST['reg-imie'];
-
-		if(strlen($regName) > 30) {
-			$validatedRight = false;
-			$_SESSION['e_imie'] = "Imię nie może być dłuższe niż 30 znaków.";
-		}
-
 		$regNazwisko = $_POST['reg-nazwisko'];
+		$regHaslo = $_POST['reg-haslo'];
+		$regPotwierdzenieHasla = $_POST['reg-potwierdzenie_hasla'];
+		$regUczelnia = $_POST['reg-uczelnia'];
+		$regEmail = $_POST['reg-email'];
+		
+		$date = date("Y-m-d");
+		$hash = password_hash($regHaslo, PASSWORD_DEFAULT);
 
-		if(strlen($regNazwisko) > 30) {
+		if(strlen($regName) > 20) {
 			$validatedRight = false;
-			$_SESSION['e_nazwisko'] = "Nazwisko nie może być dłuższe niż 40 znaków.";
+			$_SESSION['error']['reg-imie'] = "Imię nie może być dłuższe niż 20 znaków.";
 		}
 
-		$regHaslo = $_POST['reg-haslo'];
+		if(strlen($regNazwisko) > 25) {
+			$validatedRight = false;
+			$_SESSION['error']['reg-nazwisko'] = "Nazwisko nie może być dłuższe niż 25 znaków.";
+		}
 
 		if(strlen($regHaslo) < 8) {
 			$validatedRight = false;
-			$_SESSION['e_haslo'] = "Hasło musi zawierać minimum 8 znaków.";
+			$_SESSION['error']['reg-haslo'] = "Hasło musi zawierać minimum 8 znaków.";
 		}
-
-		$hash = password_hash($regHaslo, PASSWORD_DEFAULT);
-
-		$regPotwierdzenieHasla = $_POST['reg-potwierdzenie_hasla'];
 
 		if($regHaslo != $regPotwierdzenieHasla) {
 			$validatedRight = false;
-			$_SESSION['e_haslo'] = "Hasła muszą być takie same.";
+			$_SESSION['error']['reg-potwierdzenie_hasla'] = "Hasła muszą być takie same.";
 		}
-
-		$regUczelnia = $_POST['reg-uczelnia'];
 
 		if(strlen($regUczelnia) <= 0) {
 			$validatedRight = false;
-			$_SESSION['e_uczelnia'] = "Pole uczelnia nie może być puste";
+			$_SESSION['error']['reg-uczelnia'] = "Pole uczelnia nie może być puste";
 		}
 
-		$regEmail = $_POST['reg-email'];
+		if(!isset($_POST['checkbox'])) {
+			$validatedRight = false;
+			$_SESSION['error']['reg-regulamin'] = "Proszę zaakceptować regulamin";
+		}
 
 		require_once "connect.php";
 		mysqli_report(MYSQLI_REPORT_STRICT);
@@ -51,35 +53,36 @@
 			if($polaczenie->connect_errno != 0) {
 				throw new Exception(mysqli_connect_errno());
 			} else {
-				$res = $polaczenie->query("SELECT id FROM uzytkownicy WHERE email='$regEmail'");
+				$query = $polaczenie->query("SELECT id_user FROM uzytkownik WHERE email='$regEmail'");
 
-				if(!$res) {
+				if(!$query) {
 					throw new Exception($polaczenie->error);
 				}
 
-				$mailMatch = $res->num_rows;
-				if($mailMatch > 0) {
+
+				$mailMatch = $query->num_rows;
+				if ($mailMatch > 0) {
 					$validatedRight = false;
-					$_SESSION['e_email'] = "Taki email juz istnieje";
+					$_SESSION['error']['reg-email'] = "Taki email juz istnieje";
 				}
+
 
 				if($validatedRight == true) {
 					
-					if($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '$regName', '$regNazwisko', '$regEmail', '$hash', '$regUczelnia', '0')")) {
+					if($polaczenie->query("INSERT INTO uzytkownik VALUES (NULL, '0', '$regName', '$regNazwisko', '$regEmail', '$regUczelnia', '$hash', '$date')")) {
 						$_SESSION['registered'] = true;
 						header("Location: login.php");
 					} else {
 						throw new Exception(mysqli_connect_errno());
 					}
 					
-					//$sendToDB = 
 				}
 
 				$polaczenie->close();
 			}
 
 		} catch(Exception $e) {
-			echo 'Bład serwera';
+			error_log("Błąd serwera {$e->getMessage()}");
 		}
 	}
 ?>
@@ -105,45 +108,52 @@
 				<div id="form">
 				<h1> REJESTRACJA </h1>
 				
-				<form method ="post" class="register-form">
+				<form method = "post" class="register-form">
 					<hr>
 						<?php 
-						if(isset($_SESSION['e_imie'])) {
-							echo '<div class="error">' . $_SESSION['e_imie'] . '</div>'; 
-							unset($_SESSION['e_imie']);
-							} 
-						?>
+						if (isset($_SESSION['error']['reg-imie'])) {
+							echo '<div class="error">' . $_SESSION['error']['reg-imie'] . '</div>'; 
+							unset($_SESSION['error']['reg-imie']);
+						}	?>
 							<input required type="text" placeholder="Imię" id="reg-imie" name="reg-imie">
 						<?php 
-						if(isset($_SESSION['e_nazwisko'])) {
-							echo '<div class="error">' . $_SESSION['e_nazwisko'] . '</div>'; 
-							unset($_SESSION['e_nazwisko']);
-							} 
-						?>
+						if (isset($_SESSION['error']['reg-nazwisko'])) {
+							echo '<div class="error">' . $_SESSION['error']['reg-nazwisko'] . '</div>'; 
+							unset($_SESSION['error']['reg-nazwisko']);
+						}	?>
 							<input required type="text" placeholder="Nazwisko" id="reg-nazwisko" name="reg-nazwisko"></br>
 						<?php 
-						if(isset($_SESSION['e_email'])) {
-							echo '<div class="error">' . $_SESSION['e_email'] . '</div>'; 
-							unset($_SESSION['e_email']);
-							} 
-						?>
+						if (isset($_SESSION['error']['reg-email'])) {
+							echo '<div class="error">' . $_SESSION['error']['reg-email'] . '</div>'; 
+							unset($_SESSION['error']['reg-email']);
+						}	?>
 							<input required type="email" placeholder="E-mail" id="reg-email" name="reg-email"></br>
 						<?php 
-						if(isset($_SESSION['e_haslo'])) {
-							echo '<div class="error">' . $_SESSION['e_haslo'] . '</div>'; 
-							unset($_SESSION['e_haslo']);
-							} 
-						?>
+						if (isset($_SESSION['error']['reg-haslo'])) {
+							echo '<div class="error">' . $_SESSION['error']['reg-haslo'] . '</div>'; 
+							unset($_SESSION['error']['reg-haslo']);
+						}	?>
+
+						<?php 
+						if (isset($_SESSION['error']['reg-potwierdzenie_hasla'])) {
+							echo '<div class="error">' . $_SESSION['error']['reg-potwierdzenie_hasla'] . '</div>'; 
+							unset($_SESSION['error']['reg-potwierdzenie_hasla']);
+						}	?>
 							<input required type="password" placeholder="Hasło" id="reg-haslo" name="reg-haslo"></br>
 							<input required type="password" placeholder="Potwierdzenie hasła" id="reg-potwierdzenie_hasla" name="reg-potwierdzenie_hasla"></br>
 						<?php 
-						if(isset($_SESSION['e_uczelnia'])) {
-							echo '<div class="error">' . $_SESSION['e_uczelnia'] . '</div>'; 
-							unset($_SESSION['e_uczelnia']);
-							} 
-						?>
+						if (isset($_SESSION['error']['reg-uczelnia'])) {
+							echo '<div class="error">' . $_SESSION['error']['reg-uczelnia'] . '</div>'; 
+							unset($_SESSION['error']['reg-uczelnia']);
+						}	?>
 							<input required type="text" placeholder="Uczelnia" id="reg-uczelnia" name="reg-uczelnia"></br>
-							<input type="checkbox"><span>Akceptuję regulamin</span>
+						<?php 
+						if (isset($_SESSION['error']['reg-uczelnia'])) {
+							echo '<div class="error">' . $_SESSION['error']['reg-uczelnia'] . '</div>'; 
+							unset($_SESSION['error']['reg-uczelnia']);
+						}	?>
+							<input type="checkbox" name="checkbox">
+							<span>Akceptuję regulamin</span>
 					<hr>
 					<input type="submit" class="button" value="Załóż konto">
 				</form>

@@ -14,3 +14,9 @@ function panelToggle() {
       panel.style.display = "flex";
     }
   }
+
+  $(document).ready(function(){
+    $("#szukaj").click(function(){
+        $("#searchbars").slideToggle("fast");
+    });
+});

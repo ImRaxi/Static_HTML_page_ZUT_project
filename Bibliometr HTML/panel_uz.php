@@ -14,9 +14,9 @@
     <head>
         <title>SKPN</title>
         <link rel="stylesheet" href="./css/template.css">
-    <link rel="stylesheet" href="./css/panel_uz.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta charset ="UTF-8">
+        <link rel="stylesheet" href="./css/panel_uz.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset ="UTF-8">
     </head>
     <body>
         <div id="box">
@@ -24,50 +24,45 @@
             <header>
                 <h3>SYSTEM BIBLIOMETRYCZNY</h3>
             </header>
+
             <div id="divider"></div>
 
             <div id="content">
 
-              <a class="button" href="Strona_glowna_z.php">Strona Główna</a>
+                <a class="button" href="Strona_glowna_z.php">Strona Główna</a>
 
-              <div id="prawa"><a class="button1" href="logout.php">Wyloguj</a>
-                
-              <a class="button1" onclick="panelToggleE()">Edytuj Profil</a>
-              <div id="panel_edycja">
-                    <p style="float:right" onclick="panelToggleE()"><i class="fa fa-times" aria-hidden="true"></i></p>
-       
-                   
-                       <form>
-                           <input required type="text" placeholder="imie" id="imie"><br>
-                           <input required type="text" placeholder="nazwisko" id="nazwisko"></br>
-                           <input required type="text" placeholder="email" id="email"></br>
-                           <input required type="text" placeholder="haslo" id="haslo"></br>
-                           <input required type="text" placeholder="Uczelnia" id="uczelnia"></br>
-                           <input type="submit" value="ZAPISZ">
-                       </form>
-       
-                       </div>
-            </div>	
+                <div id="prawa">
+                    <a class="button1" href="logout.php">Wyloguj</a>
+                    <a class="button1" onclick="panelToggleE()">Edytuj Profil</a>
+                    
+                    <div id="panel_edycja">
+                        <p style="float:right" onclick="panelToggleE()"><i class="fa fa-times" aria-hidden="true"></i></p>
+                        <form>
+                            <input required type="text" placeholder="imie" id="imie"><br>
+                            <input required type="text" placeholder="nazwisko" id="nazwisko"></br>
+                            <input required type="text" placeholder="email" id="email"></br>
+                            <input required type="text" placeholder="haslo" id="haslo"></br>
+                            <input required type="text" placeholder="Uczelnia" id="uczelnia"></br>
+                            <input type="submit" value="ZAPISZ">
+                        </form>
+                    </div>
+                </div>	
               
               
               <img src="IMG/logoskpn.png">
 
-              
-
               <h1>PANEL UŻYTKOWNIKA</h1>
                 
-            
-
 			  <div id="tabela">
                   
-              <div id="wyszukaj">
-              <span><b>TWOJE PUBLIKACJE</b></span>
-              
-              <input type="text" placeholder="Wyszukaj" id="wyszukaj-swoje">
-              <button class="szukaj"><i class="fa fa-search" aria-hidden="true"></i></button><br>
-              
+                <div id="wyszukaj">
+                    <span><b>TWOJE PUBLIKACJE</b></span>
+                    
+                    <input type="text" placeholder="Wyszukaj" id="wyszukaj-swoje">
+                    <button class="szukaj"><i class="fa fa-search" aria-hidden="true"></i></button><br>
+                
 
-              </div>
+                </div>
               <table id = "tabela" cellspacing ="0">
                 <tr>
                     <td>Autor</td>
@@ -78,31 +73,74 @@
                     <td>Pkt</td>
                     <td class="editTable"><a class="dodaj" onclick="panelToggle()">DODAJ <b>+</b></a></td>
                 </tr>
-                <tr>
-                    <td>Paweł Krawczak</td>
-                    <td>Moja pierwsza publikacja </td>
-                    <td>11.11.2011</td>
-                    <td>ZUT</td>
-                    <td>Doktor rehabilitowany</td>
-                    <td>100/100</td>
-                    <td class="editTable"><i class="fa fa-pencil" aria-hidden="true"></i></td>
-                    <td class="editTable"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+
+                <?php 
                     
-                </tr>
+                    require_once "connect.php";
+
+                    $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+                    if($polaczenie->connect_errno != 0) {
+                        throw new Exception(mysqli_connect_errno());
+                    } else {
+                        $imie = htmlentities($_SESSION['imie'], ENT_QUOTES, "UTF-8");
+                        $nazwisko = htmlentities($_SESSION['nazwisko'], ENT_QUOTES, "UTF-8");
+                        $email = htmlentities($_SESSION['email'], ENT_QUOTES, "UTF-8");
+
+                        $query = $polaczenie->query("SELECT id_user FROM uzytkownik");
+                        $fetch = $query->fetch_assoc();
+
+                        $current_user_id = $fetch['id_user'];
+
+                        $query->free_result();
+
+                        $query = $polaczenie->query("SELECT * FROM publikacja WHERE id_user = $current_user_id");
+
+                        foreach($query as $newquery) {
+
+                            $nazwa_publikacji = $newquery['tytul'];
+                            $data = $newquery['data_publikacji'];
+                            $doi = $newquery['doi'];
+                            $tytul_naukowy = $newquery['tytul_naukowy'];
+                            $pkt = $newquery['punkty'];
+
+
+                            echo '
+                                <tr>
+                                <td>'.$imie.' '.$nazwisko.'</td>
+                                <td>'.$nazwa_publikacji.'</td>
+                                <td>'.$data.'</td>
+                                <td>'.$doi.'</td>
+                                <td>'.$tytul_naukowy.'</td>
+                                <td>'.$pkt.'</td>
+                                <td class="editTable"><i class="fa fa-pencil" aria-hidden="true"></i></td>
+                                <td class="editTable"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                </tr>'
+                            ;
+                        }
+                    }
+
+                    $polaczenie->close();
+                ?>
+                
                 </table>
                 
               </div>
+
               <div id="panel">
                 <p style="float:right" onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
-                <form>
-                    <input required type="text" placeholder="Autorzy" id="Autor"><br>
-                    <input required type="text" placeholder="Nazwa" id="Nazwa"></br>
-                    <input required type="text" placeholder="Data" id="Data"></br>
-                    <input required type="text" placeholder="DOI" id="DOI"></br>
-                    <input required type="text" placeholder="Tytul" id="Tytul"></br>
-                    <input required type="text" placeholder="Punkty" id="Pkt">
+
+                <form action ="dodaj.php" name="add-article" method ="post">
+
+                
+                    <input required type="text" placeholder="Autorzy" id="autor" name ="autor-add"><br>
+                    <input required type="text" placeholder="Nazwa" id="nazwa" name ="nazwa-add"></br>
+                    <input required type="date" placeholder="Data" id="data" name ="data-add"></br>
+                    <input required type="text" placeholder="DOI" id="doi" name ="doi-add"></br>
+                    <input required type="text" placeholder="Tytul naukowy" id="tytul" name ="tytul-add"></br>
+                    <input required type="text" placeholder="Punkty" id="pkt" name ="pkt-add">
                     <input type="submit" class="dodaj_w" value="DODAJ">
                 </form>
+
               </div>
               
             </div>

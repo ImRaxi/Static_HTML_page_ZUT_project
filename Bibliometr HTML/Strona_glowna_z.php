@@ -15,14 +15,6 @@
         <link rel="stylesheet" href="./css/template.css">
         <link rel="stylesheet" href="./css/strona_glowna_z.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script> 
-        $(document).ready(function(){
-            $("#szukaj").click(function(){
-                $("#searchbars").slideToggle("fast");
-            });
-        });
-        </script>
     </head>
 
     <body>
@@ -125,10 +117,12 @@
                 </tr>
 			</table>
         </div>
+        
         <footer>
             <p>Pingwiny&copy; 2019 ZUT PSIAI</p>
         </footer>
 
         <script src="js/scripts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </body>
 </html>
