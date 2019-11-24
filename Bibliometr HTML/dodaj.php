@@ -27,7 +27,7 @@
                         $uczelnia = htmlentities($newquery['uczelnia'], ENT_QUOTES, "UTF-8");
                     }
 
-					if($polaczenie->query("INSERT INTO publikacja VALUES ('$uid', '$autor', NULL, '$data', '$tytul', '$doi', '$uczelnia', '$pkt', '$tytul')")) {
+					if($polaczenie->query("INSERT INTO publikacja VALUES ('$uid', '$autor', NULL, '$data', '$nazwa', '$doi', '$uczelnia', '$pkt', '$tytul')")) {
 						header("Location: panel_uz.php");
 					} else {
 						throw new Exception(mysqli_connect_errno());
