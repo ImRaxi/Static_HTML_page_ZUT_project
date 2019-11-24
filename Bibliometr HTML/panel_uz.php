@@ -65,6 +65,7 @@
                 </div>
               <table id = "tabela" cellspacing ="0">
                 <tr>
+                    <td>id</td>
                     <td>Autor</td>
                     <td>Nazwa pub.</td>
                     <td>Data</td>
@@ -94,34 +95,47 @@
                         $query->free_result();
 
                         $query = $polaczenie->query("SELECT * FROM publikacja WHERE id_user = $current_user_id");
+                        
+                        if(isset($_POST["delete"])){
+                            $user  = $_POST['delete'];
+                            $delet_query = mysql_query("DELETE * FROM publikacja WHERE id = '$user' ") or die(mysql_error());
+                            
+                        }
+                        else{
+                            foreach($query as $newquery) {
 
-                        foreach($query as $newquery) {
-
-                            $nazwa_publikacji = $newquery['tytul'];
-                            $data = $newquery['data_publikacji'];
-                            $doi = $newquery['doi'];
-                            $tytul_naukowy = $newquery['tytul_naukowy'];
-                            $pkt = $newquery['punkty'];
-
+                                $id = $newquery['id_publikacji'];
+                                $nazwa_publikacji = $newquery['tytul'];
+                                $data = $newquery['data_publikacji'];
+                                $doi = $newquery['doi'];
+                                $tytul_naukowy = $newquery['tytul_naukowy'];
+                                $pkt = $newquery['punkty'];
+    
+                                
 
                             echo '
                                 <tr>
+                                <td>'.$id.'</td>
                                 <td>'.$imie.' '.$nazwisko.'</td>
                                 <td>'.$nazwa_publikacji.'</td>
                                 <td>'.$data.'</td>
                                 <td>'.$doi.'</td>
                                 <td>'.$tytul_naukowy.'</td>
                                 <td>'.$pkt.'</td>
-                                <td class="editTable"><i class="fa fa-pencil" aria-hidden="true"></i></td>
-                                <td class="editTable"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                <td class="editTable">Usuń id <form action="delete.php" method="POST"><input type="submit" name="delete" value="'.$id.'"></form></td>
                                 </tr>'
                             ;
+                        
+                        
+                           
                         }
+                    }
                     }
 
                     $polaczenie->close();
                 ?>
-                
+
+
                 </table>
                 
               </div>
