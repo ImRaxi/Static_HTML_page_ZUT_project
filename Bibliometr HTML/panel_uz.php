@@ -111,7 +111,7 @@
                                 <td>'.$tytul_naukowy.'</td>
                                 <td>'.$pkt.'</td>
                                 <td class="editTable">Usuń<form action="delete.php" method="POST"><input type="submit" name="delete" value="'.$id.'"></form></td>
-                                <td class="editTable">Modyfikuj<form action="modify.php" method="POST"><input type="submit" name="modify" value="'.$id.'"></form></td>
+                                <td class="editTable">Modyfikuj<form action="edycja.php" method="POST"><input type="submit" name="modify" value="'.$id.'"></form></td>
                                 </tr>'
                             ;
                         
