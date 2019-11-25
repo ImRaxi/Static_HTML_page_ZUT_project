@@ -37,12 +37,11 @@
                     
                     <div id="panel_edycja">
                         <p style="float:right" onclick="panelToggleE()"><i class="fa fa-times" aria-hidden="true"></i></p>
-                        <form>
-                            <input required type="text" placeholder="imie" id="imie"><br>
-                            <input required type="text" placeholder="nazwisko" id="nazwisko"></br>
-                            <input required type="text" placeholder="email" id="email"></br>
-                            <input required type="text" placeholder="haslo" id="haslo"></br>
-                            <input required type="text" placeholder="Uczelnia" id="uczelnia"></br>
+                        <form action="editProfile.php" method="POST">
+                            <input type="text" placeholder="imie" id="imie" name="imie"><br>
+                            <input type="text" placeholder="nazwisko" id="nazwisko" name="nazwisko"></br>
+                            <input type="email" placeholder="email" id="email" name="email"></br>
+                            <input type="text" placeholder="Uczelnia" id="uczelnia" name="uczelnia"></br>
                             <input type="submit" value="ZAPISZ">
                         </form>
                     </div>
@@ -87,21 +86,10 @@
                         $nazwisko = htmlentities($_SESSION['nazwisko'], ENT_QUOTES, "UTF-8");
                         $email = htmlentities($_SESSION['email'], ENT_QUOTES, "UTF-8");
 
-                        $query = $polaczenie->query("SELECT id_user FROM uzytkownik");
-                        $fetch = $query->fetch_assoc();
-
-                        $current_user_id = $fetch['id_user'];
-
-                        $query->free_result();
+                        $current_user_id = $_SESSION['id'];
 
                         $query = $polaczenie->query("SELECT * FROM publikacja WHERE id_user = $current_user_id");
-                        
-                        if(isset($_POST["delete"])){
-                            $user  = $_POST['delete'];
-                            $delet_query = mysql_query("DELETE * FROM publikacja WHERE id = '$user' ") or die(mysql_error());
-                            
-                        }
-                        else{
+
                             foreach($query as $newquery) {
 
                                 $id = $newquery['id_publikacji'];
@@ -122,14 +110,15 @@
                                 <td>'.$doi.'</td>
                                 <td>'.$tytul_naukowy.'</td>
                                 <td>'.$pkt.'</td>
-                                <td class="editTable">Usuń id <form action="delete.php" method="POST"><input type="submit" name="delete" value="'.$id.'"></form></td>
+                                <td class="editTable">Usuń<form action="delete.php" method="POST"><input type="submit" name="delete" value="'.$id.'"></form></td>
+                                <td class="editTable">Modyfikuj<form action="modify.php" method="POST"><input type="submit" name="modify" value="'.$id.'"></form></td>
                                 </tr>'
                             ;
                         
                         
                            
                         }
-                    }
+                    
                     }
 
                     $polaczenie->close();

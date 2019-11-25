@@ -29,7 +29,7 @@
 
                 $_SESSION['loggedin'] = true;
 
-                $_SESSION['id'] = $get_dane['id'];
+                $_SESSION['id'] = $get_dane['id_user'];
                 $_SESSION['imie'] = $get_dane['imie'];
                 $_SESSION['nazwisko'] = $get_dane['nazwisko'];
                 $_SESSION['email'] = $get_dane['email'];

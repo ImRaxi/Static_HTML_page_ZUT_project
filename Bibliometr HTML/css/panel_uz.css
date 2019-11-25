@@ -230,7 +230,7 @@ overflow: hidden;
     color: white;
   }
 
-  input[name="delete"]{
+  input[name="delete"],input[name="modify"]{
     width:60px;
     color:red;
     background-color: white;
