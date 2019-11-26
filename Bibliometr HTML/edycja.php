@@ -18,8 +18,11 @@
             <div id="divider"></div>
 
             <div id="content">
+
+            <img src="IMG/logoskpn.png">
                 <div id="edycja">
-                <h1>EDYCJA DANYCH<h1>
+                <h2>EDYCJA DANYCH W ARTYKULE</h2>
+                <hr>
                 <form action="editarticle.php" method="post">
                     
                     <input type="text" placeholder="tytuł" id="nazwa" name ="tytul"></br>
@@ -27,16 +30,20 @@
                     <input type="text" placeholder="DOI" id="doi" name ="doi"></br>
                     <input type="text" placeholder="Tytul naukowy" id="tytul_naukowy" name ="tytul_naukowy"></br>
                     <input type="text" placeholder="Uczelnia" id="uczelnia" name ="uczelnia"></br>
-                    <input type="text" placeholder="Punkty" id="pkt" name ="punkty">
+                    <input type="text" placeholder="Punkty" id="pkt" name ="punkty"></br>
+                 <hr>   
                     <?php
-                      echo '<input type="submit" name="id" class="dodaj_w" value='.$id_publikacji.'>'
+                      echo 'EDYTUJ<input type="submit" name="id" class="dodaj_w" value='.$id_publikacji.'>'
                     ?>
                     
                 </form>
+                
                 </div>
-				
+                
             </div>
-
+<footer>
+                    <p>Pingwiny&copy; 2019 ZUT PSIAI</p>
+            </footer>
 
     </body>
 </html>
