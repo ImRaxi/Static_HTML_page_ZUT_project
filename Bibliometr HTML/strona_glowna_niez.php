@@ -19,6 +19,43 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
+	<script>
+   function Export2Doc(element, filename = ''){
+    var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    var postHtml = "</body></html>";
+    var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+
+    var blob = new Blob(['\ufeff', html], {
+        type: 'application/msword'
+    });
+    
+    // Specify link url
+    var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+    
+    // Specify file name
+    filename = filename?filename+'.doc':'document.doc';
+    
+    // Create download link element
+    var downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob ){
+        navigator.msSaveOrOpenBlob(blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = url;
+        
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
+    
+    document.body.removeChild(downloadLink);
+}
+</script>
 
     <body>
         <div id="box">
@@ -43,7 +80,8 @@
                     </div> 
 
                     <div class="wysz-part">
-                        <a class="button1">eksportuj</a>
+				
+                        <a class="button1" onclick="Export2Doc('eksport');">Eksport</button>
                         <a class="button1" onclick="panelToggle()">filtrowanie</a>
                     </div>
 
@@ -74,8 +112,9 @@
                             <span><input type="checkbox" name = "check-tytul" form = "to-search"  checked>Tytuł</span>
                             <span><input type="checkbox" name = "check-puinkty" form = "to-search"  checked>Punkty</span>
                 </div>
-
+              <div id="eksport">
 			<table id = "tabela">
+			
                 <tr>
                     <td class ="hidden-in-table"></td>
                     <td><input type="checkbox" checked></td>
@@ -94,7 +133,7 @@
                     <td>Tytuł</td>
                     <td>Punkty</td>
                 </tr>
-
+                 
                 <?php 
 
                     require_once "connect.php";
@@ -300,6 +339,7 @@
                 
                 ?>
             </table>
+			</div>
         </div>
         <footer>
             <p>Pingwiny&copy; 2019 ZUT PSIAI</p>
