@@ -1,4 +1,5 @@
 <?php
+	ob_start();
     @session_start();
     require_once "connect.php";
 
@@ -26,40 +27,34 @@
             if($tytul != ""){
                 $query = $polaczenie->query("UPDATE publikacja SET tytul = '$tytul' WHERE id_publikacji ='$id'");
 
-                $_SESSION['tytul']=$tytul;
             }
             
             if($data_publikacji != ""){
-                $query = $polaczenie->query("UPDATE publikacja SET data_publikacji = '$data' WHERE id_publikacji ='$id'");
-
-                $_SESSION['data_publikacji']=$data_publikacji;
+                $query = $polaczenie->query("UPDATE publikacja SET data_publikacji = '$data_publikacji' WHERE id_publikacji ='$id'");
             }
 
             if($doi != ""){
                 $query = $polaczenie->query("UPDATE publikacja SET doi = '$doi' WHERE id_publikacji ='$id'");
 
-                $_SESSION['doi']=$doi;
             }
 
             if($uczelnia != ""){
                 $query = $polaczenie->query("UPDATE publikacja SET uczelnia = '$uczelnia' WHERE id_publikacji ='$id'");
 
-                $_SESSION['uczelnia']=$uczelnia;
             }
 
             if($punkty != ""){
                 $query = $polaczenie->query("UPDATE publikacja SET punkty = '$punkty' WHERE id_publikacji ='$id'");
 
-                $_SESSION['punkty']=$punkty;
             }
 
             if($tytul_naukowy != ""){
                 $query = $polaczenie->query("UPDATE publikacja SET tytul_naukowy = '$tytul_naukowy' WHERE id_publikacji ='$id'");
 
-                $_SESSION['tytul_naukowy']=$tytul_naukowy;
             }
-            header("Location: panel_uz.php");
+			header("Location: panel_uz.php");
             $polaczenie->close();
+			ob_end_flush();
         }
 
     } catch(Exception $e) {
