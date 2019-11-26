@@ -47,19 +47,12 @@
                         <a class="button1" onclick="panelToggle()">filtrowanie</a>
                     </div>
 
-                    <div id="panel" action ="search.php">
-                        <p onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
-                            <span><input type="checkbox">Autor</span>
-                            <span><input type="checkbox">Nazwa publikacji</span>
-                            <span><input type="checkbox">Data</span>
-                            <span><input type="checkbox">DOI</span>
-                            <span><input type="checkbox">Tytuł</span>
-                            <span><input type="checkbox">Punkty</span>
-                    </div>
+                    
                 </div>
+            
                 <div id="searchbars">
 
-                    <form type ="post">
+                    <form action = "" id="to-search" type ="post">
                         Autor:<br /><input type="text" id = "autor" name ="autor-search"><br />
                         Nazwa publikacji:<br><input type="text" id = "nazwa" name ="nazwa-search"><br>
                         Data:<br>
@@ -70,6 +63,16 @@
                         <input type="submit" value="Szukaj" class="button1">
                     </form>
 
+                </div>
+
+                <div id="panel" action ="search.php">
+                        <p onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
+                            <span><input type="checkbox" name = "check-autor" form = "to-search" checked>Autor</span>
+                            <span><input type="checkbox" name = "check-nazwa-publikacji" form = "to-search"  checked>Nazwa publikacji</span>
+                            <span><input type="checkbox" name = "check-data" form = "to-search"  checked>Data</span>
+                            <span><input type="checkbox" name = "check-doi" form = "to-search"  checked>DOI</span>
+                            <span><input type="checkbox" name = "check-tytul" form = "to-search"  checked>Tytuł</span>
+                            <span><input type="checkbox" name = "check-puinkty" form = "to-search"  checked>Punkty</span>
                 </div>
 
 			<table id = "tabela">
@@ -229,7 +232,6 @@
                             foreach($query as $newquery) {
 
                                 $test = $newquery['id_user'];
-                                echo $test;
 
                                 if(isset($dataOdSearch) || isset($dataDoSearch)) {
                                     $query3 = $polaczenie->query("SELECT imie, nazwisko FROM uzytkownik WHERE id_user = '$test'");
@@ -252,16 +254,46 @@
                                         $query2->free_result();
                                     }
                                 } 
-                                echo '
-                                <tr>
-                                    <td><input type="checkbox" checked></td>
-                                    <td>'.$userImie.' '.$userNazwisko.'</td>
-                                    <td>'.$newquery['tytul'].'</td>
-                                    <td>'.$newquery['data_publikacji'].'</td>
-                                    <td>'.$newquery['doi'].'</td>
-                                    <td>'.$newquery['tytul_naukowy'].'</td>
-                                    <td>'.$newquery['punkty'].'</td>
-                                </tr>';
+                                echo '<tr>';
+                                echo '<td><input type="checkbox" checked></td>';
+
+                                if (isset($_GET['check-autor'])) { 
+                                    echo "<td>".$userImie." ".$userNazwisko."</td>";
+                                } else {
+                                    echo '<td></td>';
+                                }
+
+                                if (isset($_GET['check-nazwa-publikacji'])) { 
+                                    echo "<td>".$newquery['tytul']."</td>";
+                                } else {
+                                    echo '<td></td>';
+                                }
+
+                                if (isset($_GET['check-data'])) { 
+                                    echo "<td>".$newquery['data_publikacji']."</td>";
+                                } else {
+                                    echo '<td></td>';
+                                }
+
+                                if (isset($_GET['check-doi'])) { 
+                                    echo "<td>".$newquery['doi']."</td>";
+                                } else {
+                                    echo '<td></td>';
+                                }
+
+                                if (isset($_GET['check-tytul'])) { 
+                                    echo "<td>".$newquery['tytul_naukowy']."</td>";
+                                } else {
+                                    echo '<td></td>';
+                                }
+
+                                if (isset($_GET['check-puinkty'])) { 
+                                    echo "<td>".$newquery['punkty']."</td>";
+                                } else {
+                                    echo '<td></td>';
+                                }
+
+                                echo "</tr>";
                             }
                         }
                 }
