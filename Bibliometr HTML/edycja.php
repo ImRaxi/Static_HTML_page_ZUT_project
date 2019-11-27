@@ -26,7 +26,7 @@
                 <hr>
                 <form action="editarticle.php" method="post">
                     
-                    <input type="text" placeholder="tytuł" id="nazwa" name ="tytul"></br>
+                    <input type="text" placeholder="Tytuł" id="nazwa" name ="tytul"></br>
                     <input type="date" placeholder="Data" id="data" name ="data_publikacji"></br>
                     <input type="text" placeholder="DOI" id="doi" name ="doi"></br>
                     <input type="text" placeholder="Tytul naukowy" id="tytul_naukowy" name ="tytul_naukowy"></br>
@@ -34,7 +34,7 @@
                     <input type="text" placeholder="Punkty" id="pkt" name ="punkty"></br>
                  <hr>   
                     <?php
-                      echo 'EDYTUJ<input type="submit" name="id" class="dodaj_w" value='.$id_publikacji.'>'
+                      echo '<p><span>EDYTUJ</span><input class="btn" type="submit" name="id" class="dodaj_w" value='.$id_publikacji.'></p>';
                     ?>
                     
                 </form>
