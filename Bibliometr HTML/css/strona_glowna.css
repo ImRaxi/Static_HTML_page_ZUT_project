@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+img {  
+    margin-top: 40px;
+    margin-left: 80px;
+}
+    
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.button{
+	float:right;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px 40px;
+    text-align: center;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Bebas;
+    color: black;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: 0.3s;
+  }
+
+  .button:hover, .button1:hover, #szukaj:hover {
+      background-color: #030303;
+      color: white;
+  }
+
+#wyszukiwarka, #searchbars{
+    padding: 20px;
+    width: 90%;
+    background-color: rgba(0,0,0, 0.4);
+    margin:auto;
+    margin-top: 10px;
+    box-sizing: border-box;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+#searchbars{
+    display:none;
+    color: white;
+}
+
+#searchbars input{
+    margin: 5px 0px;
+    height: 30px;
+    width: 250px;
+}
+
+input[type="date"]{
+    width:120px !important;
+}
+
+
+.button1{
+    padding: 5px 20px;
+    background-color: white;
+    border: 2px solid black;
+    text-align: center;
+    cursor: pointer;
+    font-family: Bebas;
+    color: black;
+    border-radius: 12px;
+    font-size: 15px;
+    margin: 0px 1px;
+    transition: 0.3s;
+  }
+
+
+#panel{
+    position: absolute;
+    top: 277px;
+    right: 5%;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    z-index: 10;
+    padding: 20px;
+    flex-direction: column;
+    display: none;
+  }
+
+  #panel span input {
+      margin-right: 10px;
+  }
+
+#wyszukiwarka form {
+      margin-left: 10px;
+  }
+
+#wyszukiwarka form select {
+    margin-left: 10px;
+    padding: 6px 6px;
+    min-width: 200px;
+}
+
+
+
+.wysz-part {
+    display: flex;
+  }
+
+#tabela {
+    position: relative;
+    width:90%;
+    margin:auto;
+    font-size: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#tabela td {
+    font-size: 17px;
+    text-align: center;
+    background-color: white;
+    border: 2px solid black;
+    width: 16.6%;
+    padding: 2px;
+}
+
+#tabela td:first-child {
+    width: 15px;
+    padding: 0px 10px;
+}
+
+#panel p {
+    margin: 0px;
+    margin-left: 10px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.hidden-in-table {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+#wyszukaj {
+    padding: 6px 0px;
+    border: none;
+    min-width: 300px;
+}
+
+
+#prawa {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.logo {
+    cursor: pointer;
+}

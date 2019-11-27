@@ -1,16 +1,15 @@
 
 <?php
-@session_start();
-
+    @session_start();
 ?>
 
 <!doctype html>
 
 <html>
     <head>
-        <title>SKPN</title>
+        <title>SKPN - Strona główna</title>
         <link rel="stylesheet" href="./css/template.css">
-        <link rel="stylesheet" href="./css/strona_glowna_niez.css">
+        <link rel="stylesheet" href="./css/strona_glowna.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -21,6 +20,9 @@
 
             <header>
                 <h3>SYSTEM BIBLIOMETRYCZNY</h3>
+                <?php if(isset($_SESSION['loggedin'])) {
+                    echo '<p>Zalogowany jako: '.$_SESSION['imie'].' '.$_SESSION['nazwisko']. '!</p>';
+                } ?>
             </header>
 
             <div id="divider"></div>
@@ -34,7 +36,6 @@
             <?php } else { ?>
                 <div id="prawa">
                     <a class="button" href ="panel_uz.php">PANEL UŻYTKOWNIKA</a>
-                    <a class="button" onclick="panelToggleE()">EDYTUJ PROFIL</a>
                     <a class="button" href="logout.php">WYLOGUJ SIĘ</a>
                 </div>
             <?php } ?>
@@ -47,37 +48,32 @@
                     </div> 
 
                     <div class="wysz-part">
-				
                         <a class="button1" onclick="Export2Doc('eksport')">Eksport</button>
                         <a class="button1" onclick="panelToggle()">filtrowanie</a>
                     </div>
-
-                    
                 </div>
             
                 <div id="searchbars">
-
                     <form action = "" id="to-search" type ="post">
                         Autor:<br /><input type="text" id = "autor" name ="autor-search"><br />
                         Nazwa publikacji:<br><input type="text" id = "nazwa" name ="nazwa-search"><br>
                         Data:<br>
-                        od:<input type="date" id="data" name ="dataOd-search">
-                        do:<input type="date" id="data" name ="dataDo-search"><br>
+                        od:<input type="date" id="data" name ="dataOd-search" style="margin-left: 10px;">
+                        do:<input type="date" id="data" name ="dataDo-search" style="margin-left: 10px;"><br>
                         DOI:<br><input type="text" id="DOI" name ="doi-search"><br>
                         Tytuł:<br><input type="text" id="tytul" name ="tytul-search"><br>
                         <input type="submit" value="Szukaj" class="button1">
                     </form>
-
                 </div>
 
                 <div id="panel" action ="search.php">
-                        <p onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
-                            <span><input type="checkbox" name = "check-autor" form = "to-search" checked>Autor</span>
-                            <span><input type="checkbox" name = "check-nazwa-publikacji" form = "to-search"  checked>Nazwa publikacji</span>
-                            <span><input type="checkbox" name = "check-data" form = "to-search"  checked>Data</span>
-                            <span><input type="checkbox" name = "check-doi" form = "to-search"  checked>DOI</span>
-                            <span><input type="checkbox" name = "check-tytul" form = "to-search"  checked>Tytuł</span>
-                            <span><input type="checkbox" name = "check-punkty" form = "to-search"  checked>Punkty</span>
+                    <p onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
+                    <span><input type="checkbox" name = "check-autor" form = "to-search" checked>Autor</span>
+                    <span><input type="checkbox" name = "check-nazwa-publikacji" form = "to-search"  checked>Nazwa publikacji</span>
+                    <span><input type="checkbox" name = "check-data" form = "to-search"  checked>Data</span>
+                    <span><input type="checkbox" name = "check-doi" form = "to-search"  checked>DOI</span>
+                    <span><input type="checkbox" name = "check-tytul" form = "to-search"  checked>Tytuł</span>
+                    <span><input type="checkbox" name = "check-punkty" form = "to-search"  checked>Punkty</span>
                 </div>
               <div id="eksport">
 		        <table id = "tabela">

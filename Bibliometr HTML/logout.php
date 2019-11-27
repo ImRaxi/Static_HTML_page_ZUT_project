@@ -4,5 +4,5 @@
     session_unset();
 
     session_destroy();
-    header('Location: strona_glowna_niez.php');
+    header('Location: strona_glowna.php');
 ?>

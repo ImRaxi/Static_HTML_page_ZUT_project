@@ -36,6 +36,7 @@ margin-right:10px;}
   border-radius: 12px;
   font-size: 35px;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .button1{
@@ -43,9 +44,7 @@ margin-right:10px;}
   width:125px;
 	height:30px;
   background-color: white;
-  border: solid;
-  border-width: 2px;
-  border-color: black;
+  border: 2px solid black;
   padding: 5px 15px;
   text-align: center;
   display: block;
@@ -56,6 +55,12 @@ margin-right:10px;}
   border-radius: 12px;
   font-size: 25px;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.button1:hover, .button:hover {
+  background-color: #262827;
+  color: white;
 }
 
 h1
@@ -64,6 +69,10 @@ font-family:Bebas;
 font-size:50px;
 color:white;
 margin-top:15px;
+}
+
+.hidden {
+  display: none;
 }
 
 #tabela
@@ -104,13 +113,20 @@ overflow: hidden;
   background-color: rgb(0,0,0,0);
   border-style: solid;
   border-width: 1px;
-  border-color: green;
+  border-color: white;
   color: white;
   font-family: Bebas;
-  width: 100px;
+  width: 100%;
   height: 50px;
   font-size: 24px;
   margin: auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#panel_edycja input[type="submit"]:hover {
+  background-color: white;
+  color: black;
 }
 
 #panel_edycja input{
@@ -158,30 +174,57 @@ overflow: hidden;
 .dodaj{
   font-family: Bebas;
   font-size: 30px;
-  background-color: floralwhite;
+  background-color: #0e9000;
   padding: 7px 10px;
-  border: solid 2px green;
+  border: solid 1px black;
+  color:black;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+.dodaj:hover {
+  background-color: #262827;
+  color:#0e9000;
+}
+
 .editTable{
   background: transparent !important;
   border:none !important;
   padding:0;
-  color:red;
-  }
+  position: relative;
+}
 
-  #panel {
-    position: absolute;
-    top: 353px;
-    left:127px;
-    width:74%;
-    font-size: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    background-color: rgba(20, 30, 50, 1);
-    display: none;
-  }
+.btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100% !important;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.editTable i {
+  font-size: 25px;
+  color: white;
+  transition: 0.3s;
+}
+
+
+#panel {
+  position: absolute;
+  top: 353px;
+  left:135px;
+  width:55%;
+  font-size: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background-color: black;
+  display: none;
+}
+
  #panel p {
     
     padding: 5px;
@@ -189,33 +232,37 @@ overflow: hidden;
     margin-right: 10px;
     text-align: right;
     cursor: pointer;
-    color: red;
+    color: white;
+  }
+
+  #panel form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
   }
   
-#panel form input{
-    width:280px;
+  #panel form input{
+    width:300px;
     height: 30px;
-    margin: 5px 0;
-    margin-left:350px;
   }
- 
- 
 
   .dodaj_w{
-  width: 200px !important;
-  font-family: Bebas;
-  font-size: 25px;
-  background-color: floralwhite;
-  border: solid 2px green;
-  color:red;
-  cursor: pointer;
-  float: left;
-  margin-left: 390px !important;
-}
+    font-family: Bebas;
+    font-size: 25px;
+    background-color: white;
+    border: solid 1px white;
+    cursor: pointer;
+    margin: 15px 0px;
+    transition: 0.3s;
+  }
+
+  .dodaj_w:hover {
+    background-color: black;
+    color: white;
+  }
 
   #wyszukaj{
     width: 70%;
-   
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -232,7 +279,6 @@ overflow: hidden;
 
   input[name="delete"],input[name="modify"]{
     width:60px;
-    color:red;
     background-color: white;
     border: solid green 2px;
     font-weight: 700;

@@ -4,7 +4,7 @@
   @session_start();
 
   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    header('Location:  Strona_glowna_z.php');
+    header('Location:  strona_glowna.php');
     exit();
   }
 ?>
@@ -27,7 +27,7 @@
         
         <div id="content">
 
-        <a href="strona_glowna_niez.php">
+        <a href="strona_glowna.php">
           <img src="IMG/logoskpn.png">
         </a>
         

@@ -2,7 +2,7 @@
     @session_start();
 
     if(!isset($_SESSION['loggedin'])) {
-        header('Location:  Strona_glowna_z.php');
+        header('Location:  strona_glowna.php');
         exit();
       }
 
@@ -23,13 +23,16 @@
 
             <header>
                 <h3>SYSTEM BIBLIOMETRYCZNY</h3>
+                <?php if(isset($_SESSION['loggedin'])) {
+                    echo '<p>Zalogowany jako: '.$_SESSION['imie'].' '.$_SESSION['nazwisko']. '!</p>';
+                } ?>
             </header>
 
             <div id="divider"></div>
 
             <div id="content">
 
-                <a class="button" href="Strona_glowna_z.php">Strona Główna</a>
+                <a class="button" href="strona_glowna.php">Strona Główna</a>
 
                 <div id="prawa">
                     <a class="button1" href="logout.php">Wyloguj</a>
@@ -38,9 +41,9 @@
                     <div id="panel_edycja">
                         <p style="float:right" onclick="panelToggleE()"><i class="fa fa-times" aria-hidden="true"></i></p>
                         <form action="editProfile.php" method="POST">
-                            <input type="text" placeholder="imie" id="imie" name="imie"><br>
-                            <input type="text" placeholder="nazwisko" id="nazwisko" name="nazwisko"></br>
-                            <input type="email" placeholder="email" id="email" name="email"></br>
+                            <input type="text" placeholder="Imię" id="imie" name="imie"><br>
+                            <input type="text" placeholder="Nazwisko" id="nazwisko" name="nazwisko"></br>
+                            <input type="email" placeholder="E-mail" id="email" name="email"></br>
                             <input type="text" placeholder="Uczelnia" id="uczelnia" name="uczelnia"></br>
                             <input type="submit" value="ZAPISZ">
                         </form>
@@ -48,30 +51,26 @@
                 </div>	
               
               
-              <img src="IMG/logoskpn.png">
+               <img src="IMG/logoskpn.png"/>
 
               <h1>PANEL UŻYTKOWNIKA</h1>
                 
 			  <div id="tabela">
                   
                 <div id="wyszukaj">
-                    <span><b>TWOJE PUBLIKACJE</b></span>
-                    
-                    <input type="text" placeholder="Wyszukaj" id="wyszukaj-swoje">
-                    <button class="szukaj"><i class="fa fa-search" aria-hidden="true"></i></button><br>
-                
-
+                    <span><b>TWOJE PUBLIKACJE</b></span>    
                 </div>
+
               <table id = "tabela" cellspacing ="0">
                 <tr>
-                    <td>id</td>
+                    <td class ="hidden">id</td>
                     <td>Autor</td>
                     <td>Nazwa pub.</td>
                     <td>Data</td>
                     <td>DOI</td>
                     <td>Tytuł</td>
                     <td>Pkt</td>
-                    <td class="editTable"><a class="dodaj" onclick="panelToggle()">DODAJ <b>+</b></a></td>
+                    <td class="editTable" style="min-width:150px;"><a class="dodaj" onclick="panelToggle()">+ publikacja</a></td>
                 </tr>
 
                 <?php 
@@ -103,15 +102,15 @@
 
                             echo '
                                 <tr>
-                                <td>'.$id.'</td>
+                                <td class ="hidden">'.$id.'</td>
                                 <td>'.$imie.' '.$nazwisko.'</td>
                                 <td>'.$nazwa_publikacji.'</td>
                                 <td>'.$data.'</td>
                                 <td>'.$doi.'</td>
                                 <td>'.$tytul_naukowy.'</td>
                                 <td>'.$pkt.'</td>
-                                <td class="editTable">Usuń<form action="delete.php" method="POST"><input type="submit" name="delete" value="'.$id.'"></form></td>
-                                <td class="editTable">Modyfikuj<form action="edycja.php" method="POST"><input type="submit" name="modify" value="'.$id.'"></form></td>
+                                <td class="editTable"><i class="fa fa-trash" aria-hidden="true"></i><form action="delete.php" method="POST"><input class="btn" type="submit" name="delete" value="'.$id.'"></form></td>
+                                <td class="editTable"><i class="fa fa-pencil" aria-hidden="true"></i><form action="edycja.php" method="POST"><input class="btn" type="submit" name="modify" value="'.$id.'"></form></td>
                                 </tr>'
                             ;
                         
@@ -133,9 +132,6 @@
                 <p style="float:right" onclick="panelToggle()"><i class="fa fa-times" aria-hidden="true"></i></p>
 
                 <form action ="dodaj.php" name="add-article" method ="post">
-
-                
-                    <input required type="text" placeholder="Autorzy" id="autor" name ="autor-add"><br>
                     <input required type="text" placeholder="Nazwa" id="nazwa" name ="nazwa-add"></br>
                     <input required type="date" placeholder="Data" id="data" name ="data-add"></br>
                     <input required type="text" placeholder="DOI" id="doi" name ="doi-add"></br>

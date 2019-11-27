@@ -36,7 +36,7 @@
 
                 unset($_SESSION['err']);
                 $result->free_result();
-                header('Location: Strona_glowna_z.php');
+                header('Location: strona_glowna.php');
 
             } else {
                 $_SESSION['err'] = '<p class = "error-logowania">Nieprawidłowy login lub hasło.</p>';
