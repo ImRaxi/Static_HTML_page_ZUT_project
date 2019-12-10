@@ -2,45 +2,36 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Source Sans Pro', sans-serif;
-}
+  font-family: 'Source Sans Pro', sans-serif; }
 
 img {
-  float:left;
-  margin-top:40px;
-  margin-left:80px;
-}
+  float: left;
+  margin-top: 40px;
+  margin-left: 80px; }
 
 #form {
-  margin-right:20%;
-  margin-top:40px;
-  float:right;
-  width:410px;
-}
-
-form input[type="text"], form input[type="password"], form input[type="email"] {
-  width:400px;
-  padding: 11px 7px;
-  margin:7px 5px;
-  border: none;
-}
-  form input[id="imie"], form input[id="nazwisko"] {
-    width:192px;
-  }
-
-  input[type="checkbox"] {
-    margin:7px 5px;
-  }
-  
-  span {
-    font-size:18px;
+  margin-right: 20%;
+  margin-top: 40px;
+  float: right;
+  width: 410px; }
+  #form input[type="text"], #form input[type="password"], #form input[type="email"] {
+    width: 400px;
+    padding: 11px 7px;
+    margin: 7px 5px;
+    border: none; }
+  #form input[id="imie"], #form input[id="nazwisko"] {
+    width: 192px; }
+  #form input[type="checkbox"] {
+    margin: 7px 5px; }
+  #form span {
+    font-size: 18px;
     text-transform: uppercase;
-    color:white;
-	}
-	
-	.button {
-		width:300px;
-		height:55px;
+    color: white; }
+    #form span a {
+      color: white !important; }
+  #form .button {
+    width: 300px;
+    height: 55px;
     background-color: white;
     border: 2px solid black;
     padding: 5px 15px;
@@ -52,31 +43,19 @@ form input[type="text"], form input[type="password"], form input[type="email"] {
     border-radius: 12px;
     font-size: 30px;
     margin: 10px 0px 0px 55px;
-    transition: 0.3s;
-  }
-
-  .button:hover {
-    background-color: #030303;
+    transition: 0.3s; }
+    #form .button :hover {
+      background-color: #030303;
+      color: white; }
+  #form hr {
+    height: 5px;
+    background-color: white; }
+  #form h1 {
+    font-family: Bebas;
+    text-align: center;
     color: white;
-  }
- 
-h1 {
-  font-family: Bebas;
-  text-align:center;
-  color:white;
-  font-size:50px;
-}
-
-hr {
-  height:5px;
-  background-color:white;
-}
-
-.error {
-  color: red;
-  text-align: center;
-  margin: 10px 0px;
-}
-a{
-  color:white !important;
-}
+    font-size: 50px; }
+  #form .error {
+    color: red;
+    text-align: center;
+    margin: 10px 0px; }

@@ -1,0 +1,290 @@
+$font-color-white: #fff;
+$font-color-black: black;
+$font-color-dark: #262827;
+$bg-color-white: #fff;
+$bg-color-black: black;
+$bg-color-dark: #262827;
+$border-color-white: #fff;
+$border-color-black: black;
+
+$button-green:#0e9000;
+
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+img {  
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2%;
+}
+      
+  #prawa {
+    float:right;
+    width:300px;
+    margin-top:10px;
+    margin-right:10px;
+
+    .button1 {
+        float:right;
+        width:125px;
+        height:30px;
+        background-color: $bg-color-white;
+        border: 2px solid $border-color-black;
+        padding: 5px 15px;
+        text-align: center;
+        display: block;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-family: Bebas;
+        color: $font-color-black;
+        border-radius: 12px;
+        font-size: 25px;
+        text-decoration: none;
+        transition: 0.3s;
+
+        :hover {
+            background-color: $bg-color-dark;
+            color: $font-color-white;
+        }
+      }
+
+      #panel_edycja {
+        position: absolute;
+        top: 110px;
+        right: 10px;
+        font-size: 16px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: $font-color-white;
+        z-index: 10;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        display: none;
+
+        p {
+            margin-bottom: 5px;
+            font-size: 30px;
+            margin-block-start:0;
+            margin: 0px;
+            margin-left: 85%;
+            text-align: right;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: $bg-color-black;
+            border-style: solid;
+            border-width: 1px;
+            border-color: $border-color-white;
+            color: $font-color-white;
+            font-family: Bebas;
+            width: 100%;
+            height: 50px;
+            font-size: 24px;
+            margin: auto;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: $bg-color-white;
+            color: $font-color-black;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+
+      }
+
+}
+      
+      
+  .button {
+    float:left;
+    width:200px;
+    height:45px;
+    background-color: $bg-color-white;
+    border: 2px solid $border-color-black;
+    margin-right: 60px;
+    padding: 5px 15px;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    margin-left:15px;
+    cursor: pointer;
+    font-family: Bebas;
+    color: $font-color-black;
+    border-radius: 12px;
+    font-size: 35px;
+    text-decoration: none;
+    transition: 0.3s;
+
+    :hover {
+        background-color: $font-color-dark;
+        color: $font-color-white;
+    }
+  }
+  
+  h1 {
+    text-align:center;
+    font-family:Bebas;
+    font-size:50px;
+    color:$font-color-white;
+    margin-top:15px;
+  }
+  
+  #tabela {
+    position: relative;
+    width:90%;
+    font-size: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+    height: 65%;
+    margin: auto;
+
+
+    #wyszukaj {
+        width: 70%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        margin-left: 60px;
+
+        span {
+            font-family: bebas;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 20px;
+            color: $font-color-white;
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    span {
+        margin-left:60px;
+        font-family: Bebas;
+        font-size: 30px;
+        padding-top:15px;
+        color:$font-color-white;
+    }
+
+    tr:first-child td{
+        height:60px;
+    }
+
+    td {
+        font-size: 20px;
+        text-align: center;
+        background-color: $bg-color-white;
+        border: 2px solid $border-color-black;
+        width: 1%;
+
+        .dodaj {
+            font-family: Bebas;
+            font-size: 30px;
+            background-color: $button-green;
+            padding: 7px 10px;
+            border: solid 1px $border-color-black;
+            color:$font-color-black;
+            cursor: pointer;
+            transition: 0.3s;
+
+            :hover {
+                background-color: $font-color-dark;
+                color:$button-green;
+            }
+        }
+    }
+
+    .editTable {
+        background: transparent !important;
+        border:none !important;
+        padding:0;
+        position: relative;
+
+        i {
+            font-size: 25px;
+            color: $font-color-white;
+            transition: 0.3s;
+        }
+      }
+  }
+  
+  .btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100% !important;
+    cursor: pointer;
+    opacity: 0;
+  }
+  
+  
+  #panel {
+    position: absolute;
+    top: 353px;
+    left:135px;
+    width:55%;
+    font-size: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: $bg-color-black;
+    display: none;
+
+    p {
+        padding: 5px;
+        margin: 0px;
+        margin-right: 10px;
+        text-align: right;
+        cursor: pointer;
+        color: $font-color-white;
+    }
+
+    form {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        
+        input {
+            width:300px;
+            height: 30px;
+        }
+
+        .dodaj_w {
+            font-family: Bebas;
+            font-size: 25px;
+            background-color: $bg-color-white;
+            border: solid 1px $border-color-white;
+            cursor: pointer;
+            margin: 15px 0px;
+            transition: 0.3s;
+
+            :hover {
+                background-color: $bg-color-black;
+                color: $font-color-white;
+            }
+        }
+    }
+  }
+
+  
+    input[name="delete"],input[name="modify"] {
+      width:60px;
+      background-color: $bg-color-white;
+      border: solid $button-green 2px;
+      font-weight: 700;
+    }
+  

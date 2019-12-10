@@ -22,7 +22,7 @@
 
             <img src="IMG/logoskpn.png"/>
                 <div id="edycja">
-                <h2>EDYCJA DANYCH W ARTYKULE</h2>
+                    <h2>EDYCJA DANYCH W ARTYKULE</h2>
                 <hr>
                 <form action="editarticle.php" method="post">
                     
