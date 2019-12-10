@@ -20,7 +20,7 @@
 
             <div id="content">
 
-            <img src="IMG/logoskpn.png">
+            <img src="IMG/logoskpn.png"/>
                 <div id="edycja">
                 <h2>EDYCJA DANYCH W ARTYKULE</h2>
                 <hr>
