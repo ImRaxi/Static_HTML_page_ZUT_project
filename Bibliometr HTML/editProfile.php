@@ -1,4 +1,5 @@
 <?php
+	ob_start();
     @session_start();
     require_once "connect.php";
 
@@ -43,6 +44,7 @@
             }
             header("Location: panel_uz.php");
             $polaczenie->close();
+			ob_end_flush();
         }
 
     } catch(Exception $e) {

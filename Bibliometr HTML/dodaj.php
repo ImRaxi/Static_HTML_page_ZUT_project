@@ -1,4 +1,5 @@
 <?php 
+	ob_start();
      @session_start();
      $autor = $_POST['autor-add'];
      $nazwa = $_POST['nazwa-add'];
@@ -34,6 +35,7 @@
 					}
 
 				$polaczenie->close();
+				ob_end_flush();
 			}
 
 		} catch(Exception $e) {

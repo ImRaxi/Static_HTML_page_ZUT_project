@@ -153,7 +153,7 @@
 							unset($_SESSION['error']['reg-uczelnia']);
 						}	?>
 							<input type="checkbox" name="checkbox">
-							<span>Akceptuję regulamin</span>
+							<span>Akceptuję <a href="regulamin_bibliometr.pdf">regulamin</a></span>
 					<hr>
 					<input type="submit" class="button" value="Załóż konto">
 				</form>

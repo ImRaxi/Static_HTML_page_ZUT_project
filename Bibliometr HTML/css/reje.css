@@ -36,7 +36,6 @@ form input[type="text"], form input[type="password"], form input[type="email"] {
     font-size:18px;
     text-transform: uppercase;
     color:white;
-    font-family: Bebas;
 	}
 	
 	.button {
@@ -77,4 +76,7 @@ hr {
   color: red;
   text-align: center;
   margin: 10px 0px;
+}
+a{
+  color:white !important;
 }
