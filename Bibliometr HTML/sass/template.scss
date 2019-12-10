@@ -1,0 +1,70 @@
+@font-face{
+    font-family: Bebas;
+    src:url(BebasNeue-Regular.otf);
+}
+
+$bg-color-header:rgba(0, 26, 224,0.35);
+$bg-color-content: rgba(0, 0, 0, 0.4);
+$bg-color-footer: #161817;
+$bg-color-divider: white;
+$font-color: white;
+
+body{
+    background-image: url(../IMG/to_do_strony.jpg);
+    background-repeat: none;
+    background-size: cover;
+}
+
+#box{
+    width:70%;
+    margin: auto;
+}
+    
+header{
+    height:70px;
+    background-color: $bg-color-header;
+    text-align: center;
+    position: relative;
+
+    h3{
+        line-height: 70px;
+        font-family:Bebas;
+        color:$font-color;
+        font-size:25px;
+    }
+
+    p {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: $font-color;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+
+#divider{
+    height: 10px;
+    background-color: $bg-color-divider;
+}
+
+#content{
+    overflow: hidden;
+    min-height: 820px;
+    background-color:$bg-color-content;
+    position: relative;
+}
+
+footer {
+    padding: 20px;
+    width: 100%;
+    background-color: $bg-color-footer;
+    box-sizing: border-box;
+
+    p {
+        color: $font-color;
+        text-align: center;
+    }
+}
+
