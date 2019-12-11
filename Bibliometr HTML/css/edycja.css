@@ -16,7 +16,7 @@ img {
   margin-top: 30px; }
   #edycja form {
     font-size: 20px;
-    color: red;
+    color: white;
     font-weight: bold; }
     #edycja form input {
       margin: 2px;
@@ -34,7 +34,7 @@ img {
         cursor: pointer;
         opacity: 0; }
   #edycja h2 {
-    color: red; }
+    color: white; }
   #edycja hr {
     width: 320px;
     margin: auto;

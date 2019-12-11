@@ -4,7 +4,7 @@ var uglifycss = require('gulp-uglifycss');
 var concat = require('gulp-concat');
  
 gulp.task('mincss', function () {
-  return gulp.src('./min/*.css')
+  return gulp.src('./css/*.css')
     .pipe(uglifycss({
       "maxLineLen": 80,
       "uglyComments": true
