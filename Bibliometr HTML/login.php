@@ -12,7 +12,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./min/login.css">
-  <link rel="stylesheet" href="./min/template.css">
+  <link rel="stylesheet" href="./css/template.css">
   <title>System Bibliometryczny</title>
 </head>
 

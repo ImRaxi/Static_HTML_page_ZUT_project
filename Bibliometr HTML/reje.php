@@ -91,7 +91,7 @@
     <head>
         <title>SKPN</title>
         <link rel="stylesheet" href="./min/reje.css">
-        <link rel="stylesheet" href="./min/template.css">
+        <link rel="stylesheet" href="./css/template.css">
     </head>
     <body>
         <div id="box">
