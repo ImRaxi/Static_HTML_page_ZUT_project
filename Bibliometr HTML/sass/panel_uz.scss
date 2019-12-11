@@ -46,7 +46,7 @@ img {
         text-decoration: none;
         transition: 0.3s;
 
-        :hover {
+        &:hover {
             background-color: $bg-color-dark;
             color: $font-color-white;
         }
@@ -88,11 +88,11 @@ img {
             margin: auto;
             cursor: pointer;
             transition: 0.3s;
-        }
 
-        input[type="submit"]:hover {
-            background-color: $bg-color-white;
-            color: $font-color-black;
+            :hover {
+              background-color: $bg-color-white;
+              color: $font-color-black;
+          }
         }
 
         input {
@@ -126,7 +126,7 @@ img {
     text-decoration: none;
     transition: 0.3s;
 
-    :hover {
+    &:hover {
         background-color: $font-color-dark;
         color: $font-color-white;
     }
@@ -199,7 +199,7 @@ img {
             cursor: pointer;
             transition: 0.3s;
 
-            :hover {
+            &:hover {
                 background-color: $font-color-dark;
                 color:$button-green;
             }
@@ -272,7 +272,7 @@ img {
             margin: 15px 0px;
             transition: 0.3s;
 
-            :hover {
+            &:hover {
                 background-color: $bg-color-black;
                 color: $font-color-white;
             }

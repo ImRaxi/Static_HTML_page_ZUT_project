@@ -25,9 +25,9 @@ a {
   border-radius: 12px;
   font-size: 15px;
   transition: 0.3s; }
-  .button :hover {
+  .button:hover {
     background-color: #030303;
-    color: black; }
+    color: white; }
 
 #wyszukiwarka, #searchbars {
   padding: 20px;
@@ -65,9 +65,9 @@ input[type="date"] {
   font-size: 15px;
   margin: 0px 1px;
   transition: 0.3s; }
-  .button1 :hover {
+  .button1:hover {
     background-color: #030303;
-    color: black; }
+    color: white; }
 
 #panel {
   position: absolute;
@@ -94,6 +94,9 @@ input[type="date"] {
     margin-left: 10px;
     padding: 6px 6px;
     min-width: 200px; }
+
+form {
+  color: white; }
 
 .wysz-part {
   display: flex; }

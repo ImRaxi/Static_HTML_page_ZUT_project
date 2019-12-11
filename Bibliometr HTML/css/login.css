@@ -45,7 +45,7 @@ img {
     transition: 0.3s;
     float: left;
     box-sizing: border-box; }
-    #form .button :hover {
+    #form .button:hover {
       background-color: #262827;
       color: #fff; }
 

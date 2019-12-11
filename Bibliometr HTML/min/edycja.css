@@ -1,0 +1,5 @@
+*{padding:0;margin:0;font-family:'Source Sans Pro',sans-serif}img{display:block;margin-left:auto;margin-right:auto;margin-top:2%}
+#edycja{width:70%;margin:auto;text-align:center;margin-top:30px}#edycja form{font-size:20px;color:red;font-weight:bold}
+#edycja form input{margin:2px;padding:5px 15px;width:250px}#edycja form input[type="submit"]{width:40px}
+#edycja form p{position:relative}#edycja form p .btn{width:10% !important;position:absolute;top:0;left:45%;cursor:pointer;opacity:0}
+#edycja h2{color:red}#edycja hr{width:320px;margin:auto;margin-top:10px;margin-bottom:10px;height:2px;background-color:#fff}

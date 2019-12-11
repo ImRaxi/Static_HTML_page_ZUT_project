@@ -30,7 +30,7 @@ img {
     font-size: 25px;
     text-decoration: none;
     transition: 0.3s; }
-    #prawa .button1 :hover {
+    #prawa .button1:hover {
       background-color: #262827;
       color: #fff; }
   #prawa #panel_edycja {
@@ -66,9 +66,9 @@ img {
       margin: auto;
       cursor: pointer;
       transition: 0.3s; }
-    #prawa #panel_edycja input[type="submit"]:hover {
-      background-color: #fff;
-      color: black; }
+      #prawa #panel_edycja input[type="submit"] :hover {
+        background-color: #fff;
+        color: black; }
     #prawa #panel_edycja input {
       padding: 5px;
       margin: 5px 0; }
@@ -92,7 +92,7 @@ img {
   font-size: 35px;
   text-decoration: none;
   transition: 0.3s; }
-  .button :hover {
+  .button:hover {
     background-color: #262827;
     color: #fff; }
 
@@ -148,7 +148,7 @@ h1 {
       color: black;
       cursor: pointer;
       transition: 0.3s; }
-      #tabela td .dodaj :hover {
+      #tabela td .dodaj:hover {
         background-color: #262827;
         color: #0e9000; }
   #tabela .editTable {
@@ -204,7 +204,7 @@ h1 {
       cursor: pointer;
       margin: 15px 0px;
       transition: 0.3s; }
-      #panel form .dodaj_w :hover {
+      #panel form .dodaj_w:hover {
         background-color: black;
         color: #fff; }
 

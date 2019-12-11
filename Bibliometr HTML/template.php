@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>SKPN</title>
-        <link rel="stylesheet" href="./css/template.css">
+        <link rel="stylesheet" href="./min/all.css">
         <meta charset ="UTF-8">
     </head>
     <body>

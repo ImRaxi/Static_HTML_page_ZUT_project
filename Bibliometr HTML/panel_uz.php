@@ -13,8 +13,7 @@
 <html>
     <head>
         <title>SKPN</title>
-        <link rel="stylesheet" href="./css/template.css">
-        <link rel="stylesheet" href="./css/panel_uz.css">
+        <link rel="stylesheet" href="./min/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset ="UTF-8">
     </head>
@@ -149,6 +148,6 @@
             </footer>
         </div>
 
-            <script src="js/scripts.js"></script>
+            <script src="dist/all.js"></script>
     </body>
 </html>

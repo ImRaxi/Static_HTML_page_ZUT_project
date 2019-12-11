@@ -2,6 +2,8 @@ $bg-color-button:white;
 $bg-color-search:rgba(0,0,0, 0.4);
 $bg-color-cells:white;
 $font-color:black;
+$font-color-white:white;
+$border-color-black: black;
 
 
 
@@ -26,7 +28,7 @@ a {
 .button{
 	float:right;
     background-color: $bg-color-button;
-    border: 2px solid black;
+    border: 2px solid $border-color-black;
     padding: 10px 40px;
     text-align: center;
     margin: 4px 2px;
@@ -38,9 +40,9 @@ a {
     transition: 0.3s;
 
     
-    :hover{
+    &:hover{
         background-color: #030303;
-        color: $font-color;
+        color: $font-color-white;
 }
 }
 
@@ -79,7 +81,7 @@ input[type="date"]{
 .button1{
     padding: 5px 20px;
     background-color: $bg-color-button;
-    border: 2px solid black;
+    border: 2px solid $border-color-black;
     text-align: center;
     cursor: pointer;
     font-family: Bebas;
@@ -89,9 +91,9 @@ input[type="date"]{
     margin: 0px 1px;
     transition: 0.3s;
 
-    :hover{
+    &:hover{
         background-color: #030303;
-        color: $font-color;
+        color: $font-color-white;
   }
 }
 
@@ -133,6 +135,10 @@ input[type="date"]{
     
   }
 
+  form {
+      color:white;
+  }
+
 
 
 
@@ -152,7 +158,7 @@ input[type="date"]{
     font-size: 17px;
     text-align: center;
     background-color: $bg-color-cells;
-    border: 2px solid black;
+    border: 2px solid $border-color-black;
     width: 16.6%;
     padding: 2px;
     color:$font-color;

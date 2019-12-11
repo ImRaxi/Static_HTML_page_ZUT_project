@@ -1,8 +1,7 @@
 <html>
     <head>
         <title>SKPN</title>
-        <link rel="stylesheet" href="./css/template.css">
-        <link rel="stylesheet" href="./css/edycja.css">
+        <link rel="stylesheet" href="./min/all.css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
         <meta charset ="UTF-8">
         <?php

@@ -63,7 +63,7 @@ img{
         float: left;
         box-sizing: border-box;
 
-        :hover {
+        &:hover {
             background-color: $bg-color-dark;
             color: $font-color-white;
         }
