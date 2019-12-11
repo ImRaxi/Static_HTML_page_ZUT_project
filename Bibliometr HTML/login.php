@@ -11,7 +11,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./min/all.css">
+  <link rel="stylesheet" href="./min/login.css">
+  <link rel="stylesheet" href="./min/template.css">
   <title>System Bibliometryczny</title>
 </head>
 
